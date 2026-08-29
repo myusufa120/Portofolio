@@ -1,0 +1,148 @@
+@theme {
+  --font-tech: "JetBrains Mono", monospace;
+  --font-hud: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-cyber-bg: var(--cyber-bg);
+  --color-cyber-card: var(--cyber-card);
+  --color-cyber-cyan: var(--cyber-cyan);
+  --color-cyber-cyan-glow: var(--cyber-cyan-glow);
+  --color-cyber-gold: var(--cyber-gold);
+  --color-cyber-green: var(--cyber-green);
+  --color-cyber-border: var(--cyber-border);
+  --color-cyber-gray: var(--cyber-gray);
+  --color-cyber-dark-border: var(--cyber-dark-border);
+
+  --color-cyber-text-title: var(--cyber-text-title);
+  --color-cyber-text-main: var(--cyber-text-main);
+  --color-cyber-text-muted: var(--cyber-text-muted);
+
+  --animate-scanline: scanline 6s linear infinite;
+  --animate-pulse-slow: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-blink: blink 1.5s step-start infinite;
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+}
+
+:root {
+  --cyber-bg: #090a0f;
+  --cyber-card: rgba(15, 18, 28, 0.65);
+  --cyber-cyan: #38bdf8;
+  --cyber-cyan-glow: rgba(56, 189, 248, 0.12);
+  --cyber-gold: #f59e0b;
+  --cyber-green: #10b981;
+  --cyber-border: rgba(56, 189, 248, 0.15);
+  --cyber-gray: rgba(100, 116, 139, 0.6);
+  --cyber-dark-border: rgba(255, 255, 255, 0.05);
+
+  --cyber-text-title: #f8fafc;
+  --cyber-text-main: #cbd5e1;
+  --cyber-text-muted: #64748b;
+
+  --grid-color: rgba(56, 189, 248, 0.025);
+  --dot-color: rgba(56, 189, 248, 0.04);
+}
+
+:root.light {
+  --cyber-bg: #f8fafc;
+  --cyber-card: rgba(255, 255, 255, 0.75);
+  --cyber-cyan: #0284c7;
+  --cyber-cyan-glow: rgba(2, 132, 199, 0.06);
+  --cyber-gold: #d97706;
+  --cyber-green: #059669;
+  --cyber-border: rgba(2, 132, 199, 0.18);
+  --cyber-gray: rgba(100, 116, 139, 0.5);
+  --cyber-dark-border: rgba(0, 0, 0, 0.06);
+
+  --cyber-text-title: #0f172a;
+  --cyber-text-main: #334155;
+  --cyber-text-muted: #64748b;
+
+  --grid-color: rgba(2, 132, 199, 0.03);
+  --dot-color: rgba(2, 132, 199, 0.05);
+}
+
+/* Custom Sci-Fi UI utility styles */
+.bg-cyber-grid {
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+}
+
+.bg-dot-matrix {
+  background-size: 15px 15px;
+  background-image: radial-gradient(var(--dot-color) 1.2px, transparent 1.2px);
+}
+
+.scanline-overlay {
+  display: none; /* Disabled for better text readability */
+}
+
+:root.light .scanline-overlay {
+  display: none;
+}
+
+.glass-hud {
+  background: var(--cyber-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cyber-border);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 15px var(--cyber-cyan-glow);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 8px var(--cyber-cyan-glow);
+}
+
+/* Diagonal cut corners */
+.clip-hud {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 15px) 0,
+    100% 15px,
+    100% 100%,
+    15px 100%,
+    0 calc(100% - 15px)
+  );
+}
+
+.clip-hud-sm {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cyber-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyber-cyan);
+}
