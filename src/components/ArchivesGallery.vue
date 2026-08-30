@@ -1,8 +1,13 @@
 <script setup>
 import { ref } from 'vue'
+import { useScrollReveal } from '../composables/useScrollReveal'
 import iotPrototyping from '../assets/iot_prototyping.png'
 import fieldTesting from '../assets/field_testing.png'
 import workshopPresentation from '../assets/workshop_presentation.png'
+
+// Setup scroll reveal for archives section
+useScrollReveal('#archives')
+
 
 const activeImage = ref(null)
 
@@ -71,7 +76,7 @@ const closeLightbox = () => {
     <div class="space-y-16">
       
       <!-- Section Title -->
-      <div class="text-center space-y-3">
+      <div class="text-center space-y-3 reveal-init">
         <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// SECURE DATA ARCHIVES</div>
         <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Certifications & Field Reports</h2>
         <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
@@ -82,9 +87,10 @@ const closeLightbox = () => {
       <!-- Part 1: Certification Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div 
-          v-for="cert in certifications" 
+          v-for="(cert, index) in certifications" 
           :key="cert.id"
-          class="glass-hud rounded-2xl p-6 flex flex-col justify-between hover:border-cyber-cyan/40 transition-all duration-300 bg-cyber-card/85 shadow-sm"
+          class="glass-hud rounded-2xl p-6 flex flex-col justify-between hover:border-cyber-cyan/40 transition-all duration-300 bg-cyber-card/85 shadow-sm hologram-card hover:-translate-y-1 reveal-init"
+          :style="`transition-delay: ${150 + index * 120}ms`"
         >
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-cyber-dark-border pb-2.5 font-tech text-sm">
@@ -120,10 +126,11 @@ const closeLightbox = () => {
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div 
-            v-for="item in galleryItems" 
+            v-for="(item, index) in galleryItems" 
             :key="item.id"
             @click="openLightbox(item)"
-            class="group cursor-pointer relative glass-hud rounded-2xl p-3 bg-cyber-card hover:border-cyber-cyan/45 transition-all duration-300"
+            class="group cursor-pointer relative glass-hud rounded-2xl p-3 bg-cyber-card hover:border-cyber-cyan/45 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_6px_24px_rgba(56,189,248,0.15)] reveal-init"
+            :style="`transition-delay: ${150 + index * 120}ms`"
           >
             <div class="relative overflow-hidden aspect-video border border-cyber-dark-border rounded-xl">
               <!-- Grid overlay -->

@@ -7,47 +7,61 @@ import ArchivesGallery from './components/ArchivesGallery.vue'
 import TechMatrix from './components/TechMatrix.vue'
 
 const activeSection = ref('profile')
+const scrollProgress = ref(0)
 
 const updateActiveSection = (id) => {
   activeSection.value = id
 }
 
-// Intersection Observer (Scroll Spy)
-let observer = null
+// Scroll Progress Tracker
+const handleScroll = () => {
+  const totalScroll = document.documentElement.scrollTop || document.body.scrollTop
+  const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  if (windowHeight > 0) {
+    scrollProgress.value = (totalScroll / windowHeight) * 100
+  }
+}
+
+// Scroll Spy for Navbar
+let spyObserver = null
 
 onMounted(() => {
-  const sections = ['profile', 'projects', 'archives', 'tech-matrix']
-  
-  const options = {
-    root: null,
-    rootMargin: '-50% 0px -50% 0px', // Triggers when section occupies middle of viewport
-    threshold: 0
-  }
+  window.addEventListener('scroll', handleScroll, { passive: true })
 
-  observer = new IntersectionObserver((entries) => {
+  const sections = ['profile', 'projects', 'archives', 'tech-matrix']
+  spyObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         activeSection.value = entry.target.id
       }
     })
-  }, options)
+  }, {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  })
 
   sections.forEach((id) => {
     const el = document.getElementById(id)
-    if (el) observer.observe(el)
+    if (el) spyObserver.observe(el)
   })
 })
 
 onUnmounted(() => {
-  if (observer) {
-    observer.disconnect()
-  }
+  window.removeEventListener('scroll', handleScroll)
+  if (spyObserver) spyObserver.disconnect()
 })
 </script>
 
 <template>
   <div class="min-h-screen bg-cyber-bg text-cyber-text-main relative overflow-hidden select-none font-sans">
     
+    <!-- Top Futuristic Telemetry Progress Bar -->
+    <div 
+      class="fixed top-0 left-0 h-[2.5px] bg-gradient-to-r from-cyber-cyan via-cyber-gold to-cyber-green z-50 transition-all duration-100 ease-out pointer-events-none shadow-[0_0_8px_rgba(56,189,248,0.5)]"
+      :style="{ width: `${scrollProgress}%` }"
+    ></div>
+
     <!-- CRT Scanline overlay effect (disabled in css) -->
     <div class="scanline-overlay"></div>
 

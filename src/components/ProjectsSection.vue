@@ -1,8 +1,24 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 import ProjectCard from './ProjectCard.vue'
+import { useScrollReveal } from '../composables/useScrollReveal'
+
+// Setup scroll reveal for this section
+useScrollReveal('#projects')
 
 const selectedCategory = ref('all')
+
+// Re-trigger reveal after filter changes (new cards appear)
+watch(selectedCategory, () => {
+  nextTick(() => {
+    const els = document.querySelectorAll('#projects .reveal-init:not(.revealed)')
+    if (window.__revealObserver) {
+      els.forEach(el => window.__revealObserver.observe(el))
+    } else {
+      els.forEach(el => el.classList.add('revealed'))
+    }
+  })
+})
 
 const categories = [
   { id: 'all', label: 'ALL_UNITS' },
@@ -75,7 +91,7 @@ const timelineEvents = [
   <section id="projects" class="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-cyber-dark-border">
     <div class="space-y-16">
       <!-- Section Title -->
-      <div class="text-center space-y-3">
+      <div class="text-center space-y-3 reveal-init">
         <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// DEPLOYMENT REGISTRY</div>
         <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Mission Logs & Projects</h2>
         <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
@@ -84,7 +100,7 @@ const timelineEvents = [
       </div>
 
       <!-- Tab Filter Bar -->
-      <div class="flex flex-wrap justify-center gap-3 font-tech text-sm">
+      <div class="flex flex-wrap justify-center gap-3 font-tech text-sm reveal-init delay-150">
         <button 
           v-for="cat in categories" 
           :key="cat.id"
@@ -101,9 +117,10 @@ const timelineEvents = [
       <!-- Projects Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div 
-          v-for="project in filteredProjects" 
+          v-for="(project, index) in filteredProjects" 
           :key="project.systemId"
-          class="transition-all duration-500 transform"
+          class="transition-all duration-500 transform reveal-init"
+          :class="`delay-${[200, 300, 400][index] || 200}`"
         >
           <ProjectCard :project="project" />
         </div>
@@ -111,7 +128,7 @@ const timelineEvents = [
 
       <!-- Experience Timeline Section -->
       <div class="pt-24 space-y-16">
-        <div class="text-center space-y-3">
+        <div class="text-center space-y-3 reveal-init">
           <div class="text-sm font-tech text-cyber-gold tracking-widest uppercase">// ARCHIVAL CHRONOLOGY</div>
           <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Experience & Research</h2>
           <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
@@ -127,7 +144,9 @@ const timelineEvents = [
             <div 
               v-for="(event, index) in timelineEvents" 
               :key="index"
-              class="relative pl-10 md:pl-0 group"
+              class="relative pl-10 md:pl-0 group reveal-init"
+              :class="index % 2 === 0 ? 'reveal-left' : 'reveal-right'"
+              :style="`transition-delay: ${200 + index * 150}ms`"
             >
               <!-- Timeline Central Node / Bullet Dot -->
               <div 

@@ -52,7 +52,7 @@ const scrollTo = (id) => {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-5">
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-5 animate-hud-down" style="animation-delay: 0.1s;">
     <div class="max-w-7xl mx-auto glass-hud rounded-2xl px-5 py-3 flex flex-row items-center justify-between gap-4 shadow-sm">
       
       <!-- Left side: Brand Logo with Online Status Dot -->
@@ -62,7 +62,7 @@ const scrollTo = (id) => {
           <span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-green"></span>
         </span>
         <div class="text-cyber-cyan font-hud font-extrabold text-base tracking-widest select-none">
-          YUS.DEV
+          SOFTWARE
         </div>
       </div>
 

@@ -24,7 +24,7 @@ const statusClasses = computed(() => {
 </script>
 
 <template>
-  <div class="glass-hud rounded-2xl p-6 flex flex-col justify-between h-full group hover:border-cyber-cyan/40 transition-all duration-300 bg-cyber-card shadow-sm">
+  <div class="relative flex flex-col h-full rounded-2xl border border-cyber-border/30 bg-cyber-card/80 backdrop-blur-sm shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(56,189,248,0.18)] hover:border-cyber-cyan/40 hologram-card cursor-default group p-6">
     
     <!-- Card Header -->
     <div class="flex items-center justify-between border-b border-cyber-dark-border pb-3 mb-4 font-tech text-sm">
@@ -178,8 +178,6 @@ const statusClasses = computed(() => {
           </a>
         </div>
       </div>
-
     </div>
-
   </div>
 </template>

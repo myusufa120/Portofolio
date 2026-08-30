@@ -1,5 +1,9 @@
 <script setup>
 import { ref } from 'vue'
+import { useScrollReveal } from '../composables/useScrollReveal'
+
+// Setup scroll reveal for tech matrix section
+useScrollReveal('#tech-matrix')
 
 const activeCategory = ref('mobile')
 const activeSkill = ref(null)
@@ -53,7 +57,7 @@ activeSkill.value = skillsData.mobile[0]
     <div class="space-y-16">
       
       <!-- Section Title -->
-      <div class="text-center space-y-3">
+      <div class="text-center space-y-3 reveal-init">
         <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// SYSTEM WEAPONRY</div>
         <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Tech Matrix</h2>
         <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
@@ -65,7 +69,7 @@ activeSkill.value = skillsData.mobile[0]
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         <!-- Left Side: Circular selector layout -->
-        <div class="lg:col-span-6 flex flex-col items-center justify-center relative py-10">
+        <div class="lg:col-span-6 flex flex-col items-center justify-center relative py-10 reveal-init reveal-left delay-200">
           
           <!-- Outer Circle representation -->
           <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full border border-cyber-cyan/10 flex items-center justify-center bg-dot-matrix">
@@ -118,7 +122,7 @@ activeSkill.value = skillsData.mobile[0]
         </div>
 
         <!-- Right Side: Detailed Skills List and Hologram Diagnostic Tooltip -->
-        <div class="lg:col-span-6 space-y-6">
+        <div class="lg:col-span-6 space-y-6 reveal-init reveal-right delay-300">
           
           <!-- Skill Selector Grid -->
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -142,7 +146,7 @@ activeSkill.value = skillsData.mobile[0]
           <!-- Holographic Diagnostic Card -->
           <div 
             v-if="activeSkill"
-            class="glass-hud rounded-2xl p-6 md:p-8 bg-cyber-card/90 border border-cyber-cyan/35 space-y-6 shadow-sm transition-all duration-300"
+            class="glass-hud rounded-2xl p-6 md:p-8 bg-cyber-card/90 border border-cyber-cyan/35 space-y-6 shadow-sm transition-all duration-500 hologram-card"
           >
             <!-- Card Header -->
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-cyber-dark-border pb-3.5">

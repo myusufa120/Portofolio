@@ -61,7 +61,7 @@ onMounted(() => {
     <div class="w-full max-w-[1360px] mx-auto px-4 md:px-8 relative z-10 space-y-10">
 
       <!-- Header: Operator Title -->
-      <div class="space-y-3">
+      <div class="space-y-3 animate-hud-up" style="opacity:0; animation-delay: 0.05s; animation-fill-mode: forwards;">
         <div class="flex items-center gap-3 text-sm font-tech text-cyber-cyan tracking-widest uppercase">
           <span>// MISSION OPERATOR IDENTIFICATION</span>
           <span class="h-[1px] w-20 bg-cyber-cyan/35"></span>
@@ -79,17 +79,19 @@ onMounted(() => {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
         <!-- ==================== LEFT PANEL: ATRIBUT & STATS ==================== -->
-        <div class="lg:col-span-4 flex flex-col justify-between space-y-6">
+        <div class="lg:col-span-4 flex flex-col justify-start gap-4 animate-hud-up" style="opacity:0; animation-delay: 0.2s; animation-fill-mode: forwards;">
           
           <!-- Role / Class Badge Card -->
-          <div class="relative p-6 border border-cyber-border/25 bg-cyber-card rounded-xl overflow-hidden">
+          <div class="relative p-5 border border-cyber-border/25 bg-cyber-card rounded-sm overflow-hidden hologram-card">
             <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyber-cyan"></div>
             
             <div class="text-xs font-tech text-cyber-cyan tracking-widest">// CLASSIFICATION</div>
-            <div class="text-xl md:text-2xl font-hud font-extrabold text-cyber-text-title tracking-wider mt-1.5">OPERATOR: YUSUF-01</div>
+            <div class="text-xl md:text-2xl font-hud font-extrabold text-cyber-text-title tracking-wider mt-1.5">Mobile Development
+
+            </div>
             
             <div class="flex flex-wrap gap-2 mt-4">
               <span class="px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-tech font-bold rounded-md">
@@ -105,7 +107,7 @@ onMounted(() => {
           </div>
 
           <!-- Value Proposition / Statement Card -->
-          <div class="relative p-6 border border-cyber-dark-border bg-cyber-card/40 rounded-xl">
+          <div class="relative p-5 border border-cyber-dark-border bg-cyber-card/40 rounded-sm hologram-card">
             <span class="absolute top-3 right-4 text-xs font-tech text-cyber-text-muted">[ MISSION_OBJECTIVE ]</span>
             <p class="text-base md:text-lg font-sans text-cyber-text-main leading-relaxed italic pr-8 pt-2">
               "Bridging real-world hardware telemetry with sleek, production-ready mobile apps and cloud systems."
@@ -117,7 +119,7 @@ onMounted(() => {
             <div class="text-xs font-tech text-cyber-text-muted tracking-widest uppercase">// CORE COGNITIVE PILLARS</div>
             
             <!-- Mobile Pillar -->
-            <div class="p-4 rounded-xl border border-cyber-border/35 bg-cyber-card hover:border-cyber-cyan/35 transition-colors">
+            <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-cyan/35 transition-colors">
               <div class="flex items-center gap-2 text-cyber-cyan font-tech text-sm font-bold">
                 <span>+ MOBILE ENGINE</span>
                 <span class="text-xs text-cyber-text-muted font-normal ml-auto">[ 01 ]</span>
@@ -130,7 +132,7 @@ onMounted(() => {
             </div>
 
             <!-- IoT Pillar -->
-            <div class="p-4 rounded-xl border border-cyber-border/35 bg-cyber-card hover:border-cyber-gold/35 transition-colors">
+            <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-gold/35 transition-colors">
               <div class="flex items-center gap-2 text-cyber-gold font-tech text-sm font-bold">
                 <span>+ IOT & TELEMETRY</span>
                 <span class="text-xs text-cyber-text-muted font-normal ml-auto">[ 02 ]</span>
@@ -143,7 +145,7 @@ onMounted(() => {
             </div>
 
             <!-- Infrastructure Pillar -->
-            <div class="p-4 rounded-xl border border-cyber-border/35 bg-cyber-card hover:border-cyber-green/35 transition-colors">
+            <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-green/35 transition-colors">
               <div class="flex items-center gap-2 text-cyber-green font-tech text-sm font-bold">
                 <span>+ INFRASTRUCTURE</span>
                 <span class="text-xs text-cyber-text-muted font-normal ml-auto">[ 03 ]</span>
@@ -157,16 +159,16 @@ onMounted(() => {
           </div>
 
           <!-- Live Operational Stats Row -->
-          <div class="grid grid-cols-3 gap-3.5">
-            <div class="p-3.5 bg-cyber-card border border-cyber-dark-border rounded-xl text-center">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 bg-cyber-card border border-cyber-dark-border rounded-sm text-center">
               <div class="text-[11px] font-tech text-cyber-text-muted uppercase">PROJECTS</div>
               <div class="text-xl md:text-2xl font-tech font-extrabold text-cyber-cyan mt-1">{{ totalDeploys }}</div>
             </div>
-            <div class="p-3.5 bg-cyber-card border border-cyber-dark-border rounded-xl text-center">
+            <div class="p-3 bg-cyber-card border border-cyber-dark-border rounded-sm text-center">
               <div class="text-[11px] font-tech text-cyber-text-muted uppercase">ACTIVE NODES</div>
               <div class="text-xl md:text-2xl font-tech font-extrabold text-cyber-gold mt-1">{{ activeNodes }}</div>
             </div>
-            <div class="p-3.5 bg-cyber-card border border-cyber-dark-border rounded-xl text-center">
+            <div class="p-3 bg-cyber-card border border-cyber-dark-border rounded-sm text-center">
               <div class="text-[11px] font-tech text-cyber-text-muted uppercase">UPTIME</div>
               <div class="text-xl md:text-2xl font-tech font-extrabold text-cyber-green mt-1">{{ uptime }}%</div>
             </div>
@@ -175,7 +177,7 @@ onMounted(() => {
         </div>
 
         <!-- ==================== MIDDLE PANEL: VISUAL UTAMA ==================== -->
-        <div class="lg:col-span-4 flex flex-col items-center justify-center space-y-6 bg-cyber-card/30 border border-cyber-dark-border rounded-2xl p-6 relative">
+        <div class="lg:col-span-4 flex flex-col items-center justify-center space-y-6 bg-cyber-card/30 border border-cyber-dark-border rounded-sm p-6 relative animate-hud-zoom" style="opacity:0; animation-delay: 0.35s; animation-fill-mode: forwards;">
           <div class="absolute top-3 left-4 text-xs font-tech text-cyber-text-muted">SYSTEM_VISUAL_FEED</div>
           
           <!-- Octagonal/Chamfered Photo Frame with Neon Glow -->
@@ -230,10 +232,10 @@ onMounted(() => {
         </div>
 
         <!-- ==================== RIGHT PANEL: SPECS ==================== -->
-        <div class="lg:col-span-4 flex flex-col justify-between space-y-6">
+        <div class="lg:col-span-4 flex flex-col justify-start gap-4 animate-hud-up" style="opacity:0; animation-delay: 0.5s; animation-fill-mode: forwards;">
           
           <!-- Education Dossier Card -->
-          <div class="relative p-6 border border-cyber-border/25 bg-cyber-card rounded-xl">
+          <div class="relative p-5 border border-cyber-border/25 bg-cyber-card rounded-sm hologram-card">
             <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyber-cyan"></div>
@@ -264,7 +266,7 @@ onMounted(() => {
               <!-- Thesis Badge Component -->
               <div class="border-t border-cyber-dark-border pt-3 space-y-2">
                 <span class="block text-[10px] font-tech text-cyber-text-muted uppercase tracking-widest font-semibold">// THESIS PROJECT</span>
-                <div class="p-3.5 bg-cyber-card/40 border border-cyber-dark-border rounded-xl text-xs md:text-sm text-cyber-text-main leading-relaxed italic">
+                <div class="p-3 bg-cyber-card/40 border border-cyber-dark-border rounded-sm text-xs md:text-sm text-cyber-text-main leading-relaxed italic">
                   <span class="text-cyber-cyan font-bold block not-italic text-xs mb-1 font-tech">RESEARCH // CLOUD-IOT INTEGRATION:</span>
                   "Rancang Bangun Sistem Manajemen Perangkat IOT Berbasis Cloud dengan Fitur Self-Diagnostic dan Over-The-Air Update."
                 </div>
@@ -273,7 +275,7 @@ onMounted(() => {
           </div>
 
           <!-- Comms Hub (Transceiver module) -->
-          <div class="relative p-6 border border-cyber-border/25 bg-cyber-card rounded-xl">
+          <div class="relative p-5 border border-cyber-border/25 bg-cyber-card rounded-sm hologram-card">
             <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyber-cyan"></div>
@@ -283,7 +285,7 @@ onMounted(() => {
             <span class="text-xs font-tech text-cyber-cyan tracking-widest uppercase block">// COMMS TRANSCEIVER</span>
 
             <!-- Available Indicator -->
-            <div class="mt-3.5 flex items-center gap-2 px-3 py-2 bg-cyber-green/5 border border-cyber-green/25 text-cyber-green text-xs font-tech rounded-lg">
+            <div class="mt-3.5 flex items-center gap-2 px-3 py-2 bg-cyber-green/5 border border-cyber-green/25 text-cyber-green text-xs font-tech rounded-sm">
               <span class="w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
               STATUS: AVAILABLE FOR ROLES / CONTRACTS
             </div>
@@ -292,7 +294,7 @@ onMounted(() => {
             <div class="mt-4 space-y-3">
               
               <!-- Geolocation Node -->
-              <div class="flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-lg">
+              <div class="flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-sm">
                 <div>
                   <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">GEOLOCATION</span>
                   <span class="font-bold text-cyber-text-title text-xs md:text-sm block mt-0.5">Semarang, Central Java, ID</span>
@@ -301,7 +303,7 @@ onMounted(() => {
               </div>
 
               <!-- Email Node -->
-              <div class="group flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-lg hover:border-cyber-cyan/35 transition-colors">
+              <div class="group flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-sm hover:border-cyber-cyan/35 transition-colors">
                 <div>
                   <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">EMAIL DIRECT</span>
                   <a href="mailto:myusufa120@gmail.com" class="font-bold text-cyber-cyan text-xs md:text-sm block mt-0.5 hover:underline">
@@ -310,21 +312,21 @@ onMounted(() => {
                 </div>
                 <button 
                   @click="copyText('myusufa120@gmail.com', 'email')" 
-                  class="px-3 py-1 bg-cyber-cyan/10 hover:bg-cyber-cyan/20 border border-cyber-cyan/35 text-cyber-cyan text-xs font-tech rounded-md cursor-pointer transition-all active:scale-95"
+                  class="px-3 py-1 bg-cyber-cyan/10 hover:bg-cyber-cyan/20 border border-cyber-cyan/35 text-cyber-cyan text-xs font-tech rounded-sm cursor-pointer transition-all active:scale-95"
                 >
                   {{ copiedType === 'email' ? 'COPIED' : 'COPY' }}
                 </button>
               </div>
 
               <!-- Phone Node -->
-              <div class="group flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-lg hover:border-cyber-green/35 transition-colors">
+              <div class="group flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-sm hover:border-cyber-green/35 transition-colors">
                 <div>
                   <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">PHONE COMMS</span>
                   <span class="font-bold text-cyber-green text-xs md:text-sm block mt-0.5">0813-4317-9023</span>
                 </div>
                 <button 
                   @click="copyText('081343179023', 'phone')" 
-                  class="px-3 py-1 bg-cyber-green/10 hover:bg-cyber-green/20 border border-cyber-green/35 text-cyber-green text-xs font-tech rounded-md cursor-pointer transition-all active:scale-95"
+                  class="px-3 py-1 bg-cyber-green/10 hover:bg-cyber-green/20 border border-cyber-green/35 text-cyber-green text-xs font-tech rounded-sm cursor-pointer transition-all active:scale-95"
                 >
                   {{ copiedType === 'phone' ? 'COPIED' : 'COPY' }}
                 </button>
