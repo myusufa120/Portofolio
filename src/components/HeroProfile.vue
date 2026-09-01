@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import profilePhoto from '../assets/profile.jpeg'
 
-const totalDeploys = ref(0)
+const totalDeploys = ref('5+')
 const activeNodes = ref(0)
 const uptime = ref(99.90)
 
@@ -17,17 +17,8 @@ const copyText = (text, type) => {
 }
 
 onMounted(() => {
-  const targetDeploys = 45
   const targetNodes = 12
   
-  const intervalDeploys = setInterval(() => {
-    if (totalDeploys.value < targetDeploys) {
-      totalDeploys.value++
-    } else {
-      clearInterval(intervalDeploys)
-    }
-  }, 30)
-
   const intervalNodes = setInterval(() => {
     if (activeNodes.value < targetNodes) {
       activeNodes.value++
