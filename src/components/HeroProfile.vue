@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import profilePhoto from '../assets/yusuf_profile.png'
+import profilePhoto from '../assets/profile.jpeg'
 
 const totalDeploys = ref(0)
 const activeNodes = ref(0)
@@ -89,7 +89,7 @@ onMounted(() => {
             <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyber-cyan"></div>
             
             <div class="text-xs font-tech text-cyber-cyan tracking-widest">// CLASSIFICATION</div>
-            <div class="text-xl md:text-2xl font-hud font-extrabold text-cyber-text-title tracking-wider mt-1.5">Mobile Development
+            <div class="text-xl md:text-2xl font-hud font-extrabold text-cyber-text-title tracking-wider mt-1.5">SOFTWARE ENGINEER
 
             </div>
             
@@ -121,7 +121,7 @@ onMounted(() => {
             <!-- Mobile Pillar -->
             <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-cyan/35 transition-colors">
               <div class="flex items-center gap-2 text-cyber-cyan font-tech text-sm font-bold">
-                <span>+ MOBILE ENGINE</span>
+                <span>+ MOBILE DEVELOPMENT</span>
                 <span class="text-xs text-cyber-text-muted font-normal ml-auto">[ 01 ]</span>
               </div>
               <div class="flex flex-wrap gap-2 mt-2.5">
@@ -134,7 +134,7 @@ onMounted(() => {
             <!-- IoT Pillar -->
             <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-gold/35 transition-colors">
               <div class="flex items-center gap-2 text-cyber-gold font-tech text-sm font-bold">
-                <span>+ IOT & TELEMETRY</span>
+                <span>+ IOT MANAGEMENT & MONITORING</span>
                 <span class="text-xs text-cyber-text-muted font-normal ml-auto">[ 02 ]</span>
               </div>
               <div class="flex flex-wrap gap-2 mt-2.5">
@@ -200,12 +200,12 @@ onMounted(() => {
               />
 
               <!-- Corner HUD details inside the frame -->
-              <div class="absolute top-2.5 left-2.5 text-[10px] font-tech text-cyber-cyan/80 z-20">SYS_OPERATOR // YUSUF-01</div>
+              <div class="absolute top-2.5 left-2.5 text-[10px] font-tech text-cyber-cyan/80 z-20">SYS_OPERATOR // M. YUSUF. A</div>
               <div class="absolute bottom-2.5 right-2.5 text-[10px] font-tech text-cyber-cyan/80 z-20">LOC: [7.2575° S, 112.7521° E]</div>
               
               <!-- Floating tag -->
               <div class="absolute bottom-2.5 left-2.5 z-20 font-tech text-xs text-cyber-cyan bg-cyber-bg/90 backdrop-blur-sm px-2 py-0.5 border border-cyber-cyan/30 rounded">
-                ● HOST ONLINE
+                ● IT
               </div>
             </div>
           </div>
@@ -213,7 +213,7 @@ onMounted(() => {
           <!-- Identity tag details below image -->
           <div class="text-center space-y-2 w-full pt-1">
             <div class="text-base md:text-lg font-tech text-cyber-cyan font-bold tracking-widest uppercase">
-              OPERATOR ID // YUSUF-01
+              M. YUSUF ABDURRAHMAN
             </div>
             <div class="text-xs md:text-sm font-tech text-cyber-text-muted tracking-wide">
               CLASS: SOFTWARE ENGINEER / IOT ARCHITECT
@@ -275,7 +275,7 @@ onMounted(() => {
           </div>
 
           <!-- Comms Hub (Transceiver module) -->
-          <div class="relative p-5 border border-cyber-border/25 bg-cyber-card rounded-sm hologram-card">
+          <div class="relative p-5 border border-cyber-border/25 bg-cyber-card rounded-sm hologram-card" style="top:50px">
             <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyber-cyan"></div>

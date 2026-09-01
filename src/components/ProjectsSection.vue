@@ -3,6 +3,35 @@ import { ref, computed, watch, nextTick } from 'vue'
 import ProjectCard from './ProjectCard.vue'
 import { useScrollReveal } from '../composables/useScrollReveal'
 
+// Smart-IOT System screenshots
+import imgLanding1 from '../assets/gambar_project/Monitoring_Iot/Landing_page1.png'
+import imgLanding2 from '../assets/gambar_project/Monitoring_Iot/Landing_page2.png'
+import imgLogin from '../assets/gambar_project/Monitoring_Iot/Login_page.png'
+import imgDashboard from '../assets/gambar_project/Monitoring_Iot/Dashboard.png'
+import imgDevices from '../assets/gambar_project/Monitoring_Iot/maangement devices.png'
+import imgQr from '../assets/gambar_project/Monitoring_Iot/qr code generator.png'
+import imgOta from '../assets/gambar_project/Monitoring_Iot/Tri Method OTA.png'
+import imgNotif from '../assets/gambar_project/Monitoring_Iot/histori notifikasi.png'
+import imgDiag from '../assets/gambar_project/Monitoring_Iot/self diagnosis & perintah sistem.png'
+
+// Absensi Karyawan Magang screenshots
+import imgAbsensiLanding from '../assets/gambar_project/Absensi_Karyawan_Magang/landing_page1.jpeg'
+import imgAbsensiLogin from '../assets/gambar_project/Absensi_Karyawan_Magang/login_page.jpeg'
+import imgAbsensiDashboard from '../assets/gambar_project/Absensi_Karyawan_Magang/dashbord.png'
+
+// Mobile Smart-IOT System screenshots
+import imgMIotLanding from '../assets/gambar_project/Mobile_Smart-IOT/landing_page.jpeg'
+import imgMIotLogin from '../assets/gambar_project/Mobile_Smart-IOT/login page.jpeg'
+import imgMIotDashboard from '../assets/gambar_project/Mobile_Smart-IOT/dashboard.jpeg'
+import imgMIotDevice from '../assets/gambar_project/Mobile_Smart-IOT/device.jpeg'
+import imgMIotDetailDevice from '../assets/gambar_project/Mobile_Smart-IOT/detail device.jpeg'
+import imgMIotDeviceControl from '../assets/gambar_project/Mobile_Smart-IOT/device control.jpeg'
+import imgMIotClaim from '../assets/gambar_project/Mobile_Smart-IOT/claim device.jpeg'
+import imgMIotConsole from '../assets/gambar_project/Mobile_Smart-IOT/console.jpeg'
+import imgMIotDataLogger from '../assets/gambar_project/Mobile_Smart-IOT/Data_logger.jpeg'
+import imgMIotStatistik from '../assets/gambar_project/Mobile_Smart-IOT/statistik.jpeg'
+import imgMIotFirmware from '../assets/gambar_project/Mobile_Smart-IOT/filmware.jpeg'
+
 // Setup scroll reveal for this section
 useScrollReveal('#projects')
 
@@ -28,12 +57,73 @@ const categories = [
 ]
 
 const projects = [
+  // ── Baris 1: Yang ada gambar (Web dulu) ──
+  {
+    systemId: 'SYS-03',
+    title: 'Web Smart-IOT System',
+    description: 'Full-featured web platform for smart IoT device management. Includes real-time monitoring dashboard, Firebase Authentication, QR code generator for device provisioning, OTA update via Tri-Method, notification history, self-diagnosis, and remote command execution.',
+    type: 'web',
+    status: 'public',
+    tags: ['Vue.js', 'Vite', 'Firebase Authentication', 'Thinger.io', 'Tailwind'],
+    liveLink: 'https://smart-monitoring-iot-pi.vercel.app/',
+    gitLink: null,
+    images: [
+      imgLanding1,
+      imgLanding2,
+      imgLogin,
+      imgDashboard,
+      imgDevices,
+      imgQr,
+      imgOta,
+      imgNotif,
+      imgDiag,
+    ]
+  },
+  {
+    systemId: 'APP-02',
+    title: 'Intern Employee Attendance App',
+    description: 'Flutter-based mobile application for tracking intern employee attendance. Features secure login authentication, an attendance summary dashboard, and a lightweight, responsive interface designed for daily use.',
+    type: 'mobile',
+    status: 'public',
+    tags: ['Flutter', 'Dart', 'REST API', 'UI/UX', 'Geolocation'],
+    liveLink: null,
+    gitLink: 'https://github.com/myusufa120',
+    images: [
+      imgAbsensiLanding,
+      imgAbsensiLogin,
+      imgAbsensiDashboard,
+    ]
+  },
+  {
+    systemId: 'APP-03',
+    title: 'Mobile Smart-IOT System',
+    description: 'Mobile companion for the Web Smart-IOT System, built with Flutter. Provides real-time IoT device management on the go — including a monitoring dashboard, device control, data logger, usage statistics, OTA firmware updates, and a live command console.',
+    type: 'mobile',
+    status: 'public',
+    tags: ['Flutter', 'Dart', 'Thinger.io', 'Firebase', 'IoT', 'Real-time'],
+    liveLink: null,
+    gitLink: 'https://github.com/myusufa120',
+    images: [
+      imgMIotLanding,
+      imgMIotLogin,
+      imgMIotDashboard,
+      imgMIotDevice,
+      imgMIotDetailDevice,
+      imgMIotDeviceControl,
+      imgMIotClaim,
+      imgMIotConsole,
+      imgMIotDataLogger,
+      imgMIotStatistik,
+      imgMIotFirmware,
+    ]
+  },
+  // ── Baris 2: Tanpa gambar ──
   {
     systemId: 'SYS-01',
     title: 'Hybrid Cloud IoT Device Manager',
     description: 'Designed a hybrid cloud management dashboard for microcontrollers. Features hardware self-diagnostics via I2C and ADC path monitoring, Tri-Method OTA firmware deployments (local mDNS, WebSockets, cloud), and user-to-device affinity.',
     type: 'iot',
-    status: 'deployed',
+    status: 'private',
     tags: ['ESP32', 'Firebase RTDB', 'Thinger.io', 'C++', 'WebSocket', 'Flutter'],
     liveLink: null,
     gitLink: 'https://github.com/myusufa120'
@@ -43,7 +133,7 @@ const projects = [
     title: 'BIMO Employee Management App',
     description: 'Developed and styled UI components for the BIMO mobile client using Flutter. Integrated dynamic REST API endpoints, set up role-based access control (RBAC), and designed geolocation checks to validate attendance records.',
     type: 'mobile',
-    status: 'deployed',
+    status: 'private',
     tags: ['Flutter', 'Dart', 'REST API', 'RBAC', 'Geolocation', 'UI/UX'],
     liveLink: null,
     gitLink: 'https://github.com/myusufa120'
@@ -53,11 +143,11 @@ const projects = [
     title: 'Secure WFH/WFO Presence Portal',
     description: 'Attendance web system optimized for mobile devices. Implemented strict geolocation locking within 100m coordinates limits, time-window locks, camera API live captures, and device validation filters.',
     type: 'web',
-    status: 'production',
+    status: 'private',
     tags: ['Google Apps Script', 'HTML/CSS', 'Geolocation', 'Camera API', 'Automation'],
     liveLink: null,
     gitLink: 'https://github.com/myusufa120'
-  }
+  },
 ]
 
 const filteredProjects = computed(() => {

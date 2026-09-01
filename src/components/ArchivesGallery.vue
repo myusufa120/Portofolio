@@ -4,12 +4,45 @@ import { useScrollReveal } from '../composables/useScrollReveal'
 import iotPrototyping from '../assets/iot_prototyping.png'
 import fieldTesting from '../assets/field_testing.png'
 import workshopPresentation from '../assets/workshop_presentation.png'
+import iot1 from '../assets/gambar_project/sertifikat/iot-1.jpeg'
+import iot2 from '../assets/gambar_project/sertifikat/iot-2.jpeg'
+import iot3 from '../assets/gambar_project/sertifikat/iot-3.jpeg'
+import iot4 from '../assets/gambar_project/sertifikat/iot-4.jpeg'
+import iot5 from '../assets/gambar_project/sertifikat/iot-5.jpeg'
+import iot6 from '../assets/gambar_project/sertifikat/iot-6.jpeg'
+import service1 from '../assets/gambar_project/sertifikat/service-1.jpeg'
+import service2 from '../assets/gambar_project/sertifikat/service-2.jpeg'
+import service3 from '../assets/gambar_project/sertifikat/service-3.jpeg'
+import service4 from '../assets/gambar_project/sertifikat/service-4.jpeg'
+
+// Import sertifikat PDF
+import cert01 from '../assets/gambar_project/sertifikat/CERT-01.pdf'
+import cert02 from '../assets/gambar_project/sertifikat/CERT-02.pdf'
+import cert03 from '../assets/gambar_project/sertifikat/CERT-03.pdf'
+import cert04 from '../assets/gambar_project/sertifikat/CERT-04.pdf'
+import cert05_1 from '../assets/gambar_project/sertifikat/1.pdf'
+import cert05_2 from '../assets/gambar_project/sertifikat/2.pdf'
+import cert05_3 from '../assets/gambar_project/sertifikat/3.pdf'
+import cert05_4 from '../assets/gambar_project/sertifikat/4.pdf'
+import cert05_5 from '../assets/gambar_project/sertifikat/5.pdf'
+import cert06 from '../assets/gambar_project/sertifikat/CERT-06.pdf'
+import cert07 from '../assets/gambar_project/sertifikat/CERT-07.pdf'
+
+import magang1 from '../assets/gambar_project/sertifikat/magang1.jpg'
+import magang2 from '../assets/gambar_project/sertifikat/magang2.jpg'
+import magang3 from '../assets/gambar_project/sertifikat/magang3.jpg'
+import magang4 from '../assets/gambar_project/sertifikat/magang4.jpg'
+import magang6 from '../assets/gambar_project/sertifikat/magang6.jpeg'
+import magang7 from '../assets/gambar_project/sertifikat/magang7.jpeg'
+import magang8 from '../assets/gambar_project/sertifikat/magang8.jpeg'
 
 // Setup scroll reveal for archives section
 useScrollReveal('#archives')
 
 
 const activeImage = ref(null)
+const activeCert = ref(null)
+const activeCertSlide = ref(0)
 
 const certifications = [
   {
@@ -18,7 +51,8 @@ const certifications = [
     issuer: 'Cisco Networking Academy',
     date: 'May 17, 2026',
     credId: 'CSCO-SRWE-2026',
-    verifyUrl: 'https://www.credly.com/org/cisco'
+    verifyUrl: 'https://www.credly.com/org/cisco',
+    certFile: cert01
   },
   {
     id: 'CERT-02',
@@ -26,15 +60,44 @@ const certifications = [
     issuer: 'PT Teknologi Aplikasi Sejahtera',
     date: 'June 2025',
     credId: 'TAS-INTERN-2025-EXC',
-    verifyUrl: 'https://github.com/myusufa120'
+    verifyUrl: 'https://github.com/myusufa120',
+    certFile: cert02
   },
   {
     id: 'CERT-03',
-    title: 'Menjadi Flutter Developer Expert',
-    issuer: 'Dicoding Indonesia',
+    title: 'IT Spesialist Database',
+    issuer: 'UPT Komputer Universitas Semarang by Microsoft',
     date: 'Dec 2024',
     credId: 'FLUTTER-EXP-9871',
-    verifyUrl: 'https://www.dicoding.com/certificates/FLUTTER-EXP-9871'
+    verifyUrl: 'https://www.dicoding.com/certificates/FLUTTER-EXP-9871',
+    certFile: cert03
+  },
+  {
+    id: 'CERT-04',
+    title: 'English Proficiency Test (TOEFL)',
+    issuer: 'BINA BAHASA JAYA Universitas Semarang',
+    date: '2024',
+    credId: 'TOEFL-2024',
+    verifyUrl: '#',
+    certFile: cert04
+  },
+  {
+    id: 'CERT-05',
+    title: 'Organization & Seminar Awards',
+    issuer: 'Various Institutions',
+    date: '2023 – 2025',
+    credId: 'ORG-SEM-BUNDLE-5',
+    verifyUrl: '#',
+    certFiles: [cert05_1, cert05_2, cert05_3, cert05_4, cert05_5]
+  },
+  {
+    id: 'CERT-06',
+    title: 'HAKI & Community Service Publications',
+    issuer: 'Lembaga Penelitian dan Pengabdian kepada Masyarakat Universitas Semarang',
+    date: '2024 – 2025',
+    credId: 'LPPM-HAKI-USM-2',
+    verifyUrl: '#',
+    certFiles: [cert06, cert07]
   }
 ]
 
@@ -43,31 +106,88 @@ const galleryItems = [
     id: 'GALLERY-01',
     title: 'IoT Prototyping & ESP32 Assembly',
     desc: 'Breadboard setup connecting ESP32 nodes to sensors (DHT22, BMP280) and designing local OLED screens to diagnose offline calibration states before telemetry deployment.',
-    img: iotPrototyping,
+    img: iot1,
+    imgs: [iot1, iot2, iot3, iot4, iot5, iot6],
+    imgLabels: ['Assembly Setup', 'Sensor Wiring', 'OLED Display Test', 'Node Configuration', 'Power Module', 'Deployment Ready'],
     meta: 'CORE: ESP32-WROOM-32 // DEV_BOARD: v4'
   },
   {
     id: 'GALLERY-02',
-    title: 'Field Diagnostic & Telemetry Validation',
-    desc: 'Mounting and configuring sensor nodes in outdoor environments. Calibrating solar-powered battery inputs and verifying Wi-Fi/cellular gateway stability back to database routes.',
-    img: fieldTesting,
-    meta: 'LOC: HYDRO_COORDS_SURABAYA // TEMP: 32.4°C'
+    title: 'Hardware Service & Repair',
+    desc: 'Hands-on hardware servicing including diagnostics, component-level repair, and device maintenance. Covering laptop, desktop, and peripheral troubleshooting with systematic fault isolation techniques.',
+    img: service1,
+    imgs: [service1, service2, service3, service4],
+    imgLabels: ['Device Diagnosis', 'Component Repair', 'System Reassembly', 'Final Testing'],
+    meta: 'SKILL: HARDWARE_SERVICE // TYPE: COMPONENT_LEVEL_REPAIR'
   },
   {
     id: 'GALLERY-03',
-    title: 'Software Architecture Presentations',
-    desc: 'Demonstrating clean architecture concepts and Fuzzy Logic decision trees during local tech panels. Explaining sensor payload structures and responsive data graphs to engineers.',
-    img: workshopPresentation,
-    meta: 'THEME: HYBRID SENSORS TO FLUTTER APP'
+    title: 'Internship Documentation',
+    desc: 'Professional internship activities at PT Teknologi Aplikasi Sejahtera — covering daily operations, software development sprints, cross-functional team collaboration, and final project presentation to company stakeholders.',
+    img: magang1,
+    imgs: [magang1, magang2, magang3, magang4, magang6, magang7, magang8],
+    imgLabels: ['Day Operations', 'Project Development', 'Team Collaboration', 'Final Presentation', 'Field Activity I', 'Field Activity II', 'Field Activity III'],
+    meta: 'PHASE: MAGANG_PROFESIONAL // LOC: PT_TAS // GRADE: EXCELLENT'
   }
 ]
 
+const activeImageSlide = ref(0)
+
 const openLightbox = (item) => {
   activeImage.value = item
+  activeImageSlide.value = 0
 }
 
 const closeLightbox = () => {
   activeImage.value = null
+  activeImageSlide.value = 0
+}
+
+const prevImageSlide = () => {
+  if (!activeImage.value?.imgs) return
+  activeImageSlide.value = (activeImageSlide.value - 1 + activeImage.value.imgs.length) % activeImage.value.imgs.length
+}
+
+const nextImageSlide = () => {
+  if (!activeImage.value?.imgs) return
+  activeImageSlide.value = (activeImageSlide.value + 1) % activeImage.value.imgs.length
+}
+
+const currentGalleryImg = () => {
+  if (!activeImage.value) return ''
+  if (activeImage.value.imgs) return activeImage.value.imgs[activeImageSlide.value]
+  return activeImage.value.img
+}
+
+const currentGalleryLabel = () => {
+  if (!activeImage.value?.imgLabels) return activeImage.value?.id ?? ''
+  return activeImage.value.imgLabels[activeImageSlide.value]
+}
+
+const openCertModal = (cert) => {
+  activeCert.value = cert
+  activeCertSlide.value = 0
+}
+
+const closeCertModal = () => {
+  activeCert.value = null
+  activeCertSlide.value = 0
+}
+
+const prevSlide = () => {
+  if (!activeCert.value?.certFiles) return
+  activeCertSlide.value = (activeCertSlide.value - 1 + activeCert.value.certFiles.length) % activeCert.value.certFiles.length
+}
+
+const nextSlide = () => {
+  if (!activeCert.value?.certFiles) return
+  activeCertSlide.value = (activeCertSlide.value + 1) % activeCert.value.certFiles.length
+}
+
+const currentCertFile = () => {
+  if (!activeCert.value) return ''
+  if (activeCert.value.certFiles) return activeCert.value.certFiles[activeCertSlide.value]
+  return activeCert.value.certFile
 }
 </script>
 
@@ -85,7 +205,7 @@ const closeLightbox = () => {
       </div>
 
       <!-- Part 1: Certification Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div 
           v-for="(cert, index) in certifications" 
           :key="cert.id"
@@ -106,13 +226,12 @@ const closeLightbox = () => {
             </div>
           </div>
           <div class="mt-6 pt-3 border-t border-cyber-dark-border">
-            <a 
-              :href="cert.verifyUrl" 
-              target="_blank" 
-              class="w-full text-center block py-2.5 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 hover:border-cyber-cyan font-tech text-sm tracking-wider rounded-xl transition-all font-semibold"
+            <button 
+              @click="openCertModal(cert)"
+              class="w-full text-center block py-2.5 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 hover:border-cyber-cyan font-tech text-sm tracking-wider rounded-xl transition-all font-semibold cursor-pointer"
             >
               [ VERIFY CREDENTIAL ]
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -155,7 +274,102 @@ const closeLightbox = () => {
         </div>
       </div>
 
-      <!-- Lightbox Modal -->
+      <!-- Certificate Modal (PDF Viewer) -->
+      <Teleport to="body">
+        <Transition name="cert-modal">
+          <div 
+            v-if="activeCert" 
+            class="fixed inset-0 z-[999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+            @click.self="closeCertModal"
+          >
+            <div class="cert-modal-box w-full max-w-4xl glass-hud rounded-3xl border border-cyber-border shadow-2xl shadow-black/40 flex flex-col overflow-hidden bg-cyber-card"
+              style="max-height: 92vh;"
+            >
+              <!-- Modal Header -->
+              <div class="flex items-center justify-between px-6 py-4 border-b border-cyber-dark-border flex-shrink-0">
+                <div class="flex items-center gap-3">
+                  <span class="text-cyber-cyan font-tech text-sm font-bold">{{ activeCert.id }}</span>
+                  <span class="text-cyber-dark-border font-tech">|</span>
+                  <span class="text-cyber-text-title font-hud font-bold text-base truncate max-w-[280px] md:max-w-none">{{ activeCert.title }}</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <a 
+                    :href="currentCertFile()" 
+                    download 
+                    class="flex items-center gap-1.5 py-1.5 px-4 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 hover:border-cyber-cyan font-tech text-xs tracking-wider rounded-xl transition-all"
+                    title="Download PDF"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    DOWNLOAD
+                  </a>
+                  <button 
+                    @click="closeCertModal"
+                    class="text-cyber-cyan hover:text-white font-tech text-xs border border-cyber-border px-3.5 py-1.5 rounded-full bg-cyber-bg transition-colors cursor-pointer"
+                  >
+                    [ CLOSE_X ]
+                  </button>
+                </div>
+              </div>
+
+              <!-- Cert Info Bar -->
+              <div class="px-6 py-2.5 border-b border-cyber-dark-border bg-cyber-bg/60 flex items-center gap-6 text-xs font-tech text-cyber-text-muted flex-shrink-0">
+                <span>ISSUER: <span class="text-cyber-text-main font-bold uppercase">{{ activeCert.issuer }}</span></span>
+                <span>DATE: <span class="text-cyber-cyan">{{ activeCert.date }}</span></span>
+                <span class="ml-auto flex items-center gap-1.5">
+                  <span class="inline-block w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
+                  CREDENTIAL VERIFIED
+                </span>
+              </div>
+
+              <!-- PDF Embed -->
+              <div class="flex-1 bg-cyber-bg/80 overflow-hidden relative" style="min-height: 480px;">
+                <iframe
+                  :key="activeCertSlide"
+                  :src="currentCertFile() + '#toolbar=1&navpanes=0&scrollbar=1'"
+                  class="w-full h-full"
+                  style="min-height: 480px; border: none;"
+                  :title="activeCert.title"
+                />
+
+                <!-- Multi-slide navigation (only for CERT-05) -->
+                <template v-if="activeCert.certFiles">
+                  <!-- Prev / Next arrows -->
+                  <button
+                    @click="prevSlide"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyber-bg/90 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 hover:border-cyber-cyan transition-all cursor-pointer text-lg font-bold"
+                    title="Previous"
+                  >&#8249;</button>
+                  <button
+                    @click="nextSlide"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyber-bg/90 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 hover:border-cyber-cyan transition-all cursor-pointer text-lg font-bold"
+                    title="Next"
+                  >&#8250;</button>
+
+                  <!-- Dot indicators + counter -->
+                  <div class="absolute bottom-3 left-0 right-0 flex flex-col items-center gap-2 pointer-events-none">
+                    <div class="flex gap-2">
+                      <button
+                        v-for="(_, i) in activeCert.certFiles"
+                        :key="i"
+                        @click="activeCertSlide = i"
+                        class="pointer-events-auto w-2.5 h-2.5 rounded-full border border-cyber-cyan/40 transition-all cursor-pointer"
+                        :class="activeCertSlide === i ? 'bg-cyber-cyan scale-125' : 'bg-cyber-bg/70 hover:bg-cyber-cyan/40'"
+                      />
+                    </div>
+                    <span class="pointer-events-none font-tech text-xs text-cyber-cyan bg-cyber-bg/80 px-3 py-0.5 rounded-full border border-cyber-cyan/20">
+                      {{ activeCertSlide + 1 }} / {{ activeCert.certFiles.length }}
+                    </span>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </Transition>
+      </Teleport>
+
+      <!-- Lightbox Modal (Gallery) -->
       <div 
         v-if="activeImage" 
         class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
@@ -171,10 +385,41 @@ const closeLightbox = () => {
             [ CLOSE_X ]
           </button>
 
-          <!-- Left column: Image -->
+          <!-- Left column: Image with slideshow -->
           <div class="md:w-3/5 relative border border-cyber-dark-border rounded-2xl aspect-video bg-cyber-bg/90 flex items-center justify-center overflow-hidden">
             <div class="absolute inset-0 bg-cyber-grid opacity-15 pointer-events-none"></div>
-            <img :src="activeImage.img" :alt="activeImage.title" class="w-full h-full object-cover" />
+            <img
+              :key="activeImageSlide"
+              :src="currentGalleryImg()"
+              :alt="activeImage.title"
+              class="w-full h-full object-cover transition-opacity duration-300"
+            />
+            <!-- Slide nav arrows (multi-image only) -->
+            <template v-if="activeImage.imgs">
+              <button
+                @click="prevImageSlide"
+                class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyber-bg/90 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 hover:border-cyber-cyan transition-all cursor-pointer text-xl font-bold"
+              >&#8249;</button>
+              <button
+                @click="nextImageSlide"
+                class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyber-bg/90 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 hover:border-cyber-cyan transition-all cursor-pointer text-xl font-bold"
+              >&#8250;</button>
+              <!-- Dot indicators -->
+              <div class="absolute bottom-2.5 left-0 right-0 flex flex-col items-center gap-1.5">
+                <div class="flex gap-2">
+                  <button
+                    v-for="(_, i) in activeImage.imgs"
+                    :key="i"
+                    @click="activeImageSlide = i"
+                    class="w-2 h-2 rounded-full border border-cyber-cyan/40 transition-all cursor-pointer"
+                    :class="activeImageSlide === i ? 'bg-cyber-cyan scale-125' : 'bg-cyber-bg/70 hover:bg-cyber-cyan/40'"
+                  />
+                </div>
+                <span class="font-tech text-[10px] text-cyber-cyan bg-cyber-bg/80 px-2.5 py-0.5 rounded-full border border-cyber-cyan/20">
+                  {{ currentGalleryLabel() }} &nbsp;·&nbsp; {{ activeImageSlide + 1 }}/{{ activeImage.imgs.length }}
+                </span>
+              </div>
+            </template>
           </div>
 
           <!-- Right column: Log Info -->
@@ -205,3 +450,24 @@ const closeLightbox = () => {
     </div>
   </section>
 </template>
+
+<style scoped>
+/* Certificate Modal Transition */
+.cert-modal-enter-active,
+.cert-modal-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cert-modal-enter-from,
+.cert-modal-leave-to {
+  opacity: 0;
+}
+.cert-modal-enter-from .cert-modal-box,
+.cert-modal-leave-to .cert-modal-box {
+  transform: scale(0.93) translateY(16px);
+}
+.cert-modal-enter-to .cert-modal-box,
+.cert-modal-leave-from .cert-modal-box {
+  transform: scale(1) translateY(0);
+  transition: transform 0.3s ease;
+}
+</style>
