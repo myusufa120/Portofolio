@@ -279,52 +279,54 @@ const currentCertFile = () => {
         <Transition name="cert-modal">
           <div 
             v-if="activeCert" 
-            class="fixed inset-0 z-[999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+            class="fixed inset-0 z-[999] bg-black/85 backdrop-blur-md flex items-end md:items-center justify-center p-0 md:p-4"
             @click.self="closeCertModal"
           >
-            <div class="cert-modal-box w-full max-w-4xl glass-hud rounded-3xl border border-cyber-border shadow-2xl shadow-black/40 flex flex-col overflow-hidden bg-cyber-card"
-              style="max-height: 92vh;"
+            <div class="cert-modal-box w-full md:max-w-4xl glass-hud md:rounded-3xl rounded-t-3xl border border-cyber-border shadow-2xl shadow-black/40 flex flex-col overflow-hidden bg-cyber-card"
+              style="max-height: 95vh;"
             >
-              <!-- Modal Header -->
-              <div class="flex items-center justify-between px-6 py-4 border-b border-cyber-dark-border flex-shrink-0">
-                <div class="flex items-center gap-3">
-                  <span class="text-cyber-cyan font-tech text-sm font-bold">{{ activeCert.id }}</span>
-                  <span class="text-cyber-dark-border font-tech">|</span>
-                  <span class="text-cyber-text-title font-hud font-bold text-base truncate max-w-[280px] md:max-w-none">{{ activeCert.title }}</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <a 
-                    :href="currentCertFile()" 
-                    download 
-                    class="flex items-center gap-1.5 py-1.5 px-4 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 hover:border-cyber-cyan font-tech text-xs tracking-wider rounded-xl transition-all"
-                    title="Download PDF"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    DOWNLOAD
-                  </a>
+              <!-- Modal Header — stacks on mobile -->
+              <div class="flex flex-col gap-2 px-4 md:px-6 pt-4 pb-3 border-b border-cyber-dark-border flex-shrink-0">
+                <!-- Top row: ID + title + close -->
+                <div class="flex items-start justify-between gap-2">
+                  <div class="flex items-center gap-2 min-w-0">
+                    <span class="text-cyber-cyan font-tech text-xs font-bold flex-shrink-0">{{ activeCert.id }}</span>
+                    <span class="text-cyber-dark-border font-tech flex-shrink-0">|</span>
+                    <span class="text-cyber-text-title font-hud font-bold text-sm md:text-base leading-tight">{{ activeCert.title }}</span>
+                  </div>
                   <button 
                     @click="closeCertModal"
-                    class="text-cyber-cyan hover:text-white font-tech text-xs border border-cyber-border px-3.5 py-1.5 rounded-full bg-cyber-bg transition-colors cursor-pointer"
+                    class="flex-shrink-0 text-cyber-cyan hover:text-white font-tech text-xs border border-cyber-border px-3 py-1.5 rounded-full bg-cyber-bg transition-colors cursor-pointer"
                   >
-                    [ CLOSE_X ]
+                    ✕
                   </button>
                 </div>
+                <!-- Bottom row: Download button -->
+                <a 
+                  :href="currentCertFile()" 
+                  download 
+                  class="self-start flex items-center gap-1.5 py-1.5 px-3 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 hover:border-cyber-cyan font-tech text-xs tracking-wider rounded-xl transition-all"
+                  title="Download PDF"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  DOWNLOAD PDF
+                </a>
               </div>
 
-              <!-- Cert Info Bar -->
-              <div class="px-6 py-2.5 border-b border-cyber-dark-border bg-cyber-bg/60 flex items-center gap-6 text-xs font-tech text-cyber-text-muted flex-shrink-0">
-                <span>ISSUER: <span class="text-cyber-text-main font-bold uppercase">{{ activeCert.issuer }}</span></span>
+              <!-- Cert Info Bar — wraps on mobile -->
+              <div class="px-4 md:px-6 py-2.5 border-b border-cyber-dark-border bg-cyber-bg/60 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-tech text-cyber-text-muted flex-shrink-0">
+                <span class="leading-relaxed">ISSUER: <span class="text-cyber-text-main font-bold uppercase">{{ activeCert.issuer }}</span></span>
                 <span>DATE: <span class="text-cyber-cyan">{{ activeCert.date }}</span></span>
-                <span class="ml-auto flex items-center gap-1.5">
+                <span class="flex items-center gap-1.5">
                   <span class="inline-block w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
                   CREDENTIAL VERIFIED
                 </span>
               </div>
 
-              <!-- PDF Embed -->
-              <div class="flex-1 bg-cyber-bg/80 overflow-hidden relative" style="min-height: 480px;">
+              <!-- PDF Embed — desktop only -->
+              <div class="hidden md:block flex-1 bg-cyber-bg/80 overflow-hidden relative" style="min-height: 480px;">
                 <iframe
                   :key="activeCertSlide"
                   :src="currentCertFile() + '#toolbar=1&navpanes=0&scrollbar=1'"
@@ -332,10 +334,8 @@ const currentCertFile = () => {
                   style="min-height: 480px; border: none;"
                   :title="activeCert.title"
                 />
-
-                <!-- Multi-slide navigation (only for CERT-05) -->
+                <!-- Multi-slide navigation -->
                 <template v-if="activeCert.certFiles">
-                  <!-- Prev / Next arrows -->
                   <button
                     @click="prevSlide"
                     class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyber-bg/90 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 hover:border-cyber-cyan transition-all cursor-pointer text-lg font-bold"
@@ -346,8 +346,6 @@ const currentCertFile = () => {
                     class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 flex items-center justify-center rounded-full bg-cyber-bg/90 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/20 hover:border-cyber-cyan transition-all cursor-pointer text-lg font-bold"
                     title="Next"
                   >&#8250;</button>
-
-                  <!-- Dot indicators + counter -->
                   <div class="absolute bottom-3 left-0 right-0 flex flex-col items-center gap-2 pointer-events-none">
                     <div class="flex gap-2">
                       <button
@@ -364,6 +362,55 @@ const currentCertFile = () => {
                   </div>
                 </template>
               </div>
+
+              <!-- Mobile: PDF tidak bisa di-embed, tampilkan list buka per halaman -->
+              <div class="md:hidden flex-1 flex flex-col items-center justify-center gap-5 px-6 py-8 bg-cyber-bg/60">
+                <div class="w-16 h-16 rounded-2xl border border-cyber-cyan/30 bg-cyber-cyan/5 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-cyber-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div class="text-center space-y-1">
+                  <p class="font-hud font-bold text-cyber-text-title text-sm">PDF Viewer</p>
+                  <p class="font-tech text-xs text-cyber-text-muted">Browser mobile tidak mendukung PDF embed. Buka langsung melalui tombol di bawah.</p>
+                </div>
+
+                <!-- Single file -->
+                <template v-if="!activeCert.certFiles">
+                  <a
+                    :href="currentCertFile()"
+                    target="_blank"
+                    class="w-full py-3 flex items-center justify-center gap-2 border border-cyber-cyan/40 text-cyber-cyan bg-cyber-cyan/10 hover:bg-cyber-cyan/20 font-tech text-sm tracking-wider rounded-2xl transition-all"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    BUKA PDF
+                  </a>
+                </template>
+
+                <!-- Multi-file (CERT-05 / CERT-06) -->
+                <template v-else>
+                  <div class="w-full space-y-2">
+                    <a
+                      v-for="(file, i) in activeCert.certFiles"
+                      :key="i"
+                      :href="file"
+                      target="_blank"
+                      class="w-full py-2.5 flex items-center justify-between gap-2 border border-cyber-cyan/30 text-cyber-cyan bg-cyber-cyan/5 hover:bg-cyber-cyan/15 font-tech text-xs tracking-wider rounded-xl transition-all px-4"
+                    >
+                      <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        <span>Dokumen {{ i + 1 }}</span>
+                      </div>
+                      <span class="text-cyber-text-muted">OPEN ›</span>
+                    </a>
+                  </div>
+                </template>
+              </div>
+
             </div>
           </div>
         </Transition>
