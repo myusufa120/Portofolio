@@ -80,19 +80,19 @@ onMounted(() => {
             <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyber-cyan"></div>
             
             <div class="text-xs font-tech text-cyber-cyan tracking-widest">// CLASSIFICATION</div>
-            <div class="text-xl md:text-2xl font-hud font-extrabold text-cyber-text-title tracking-wider mt-1.5">SOFTWARE ENGINEER
+            <div class="text-xl md:text-2xl font-hud font-extrabold text-cyber-text-title tracking-wider mt-1.5">IT INFRASTRUCTURE ENTHUSIAST
 
             </div>
             
             <div class="flex flex-wrap gap-2 mt-4">
               <span class="px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-tech font-bold rounded-md">
-                FULL-STACK
+                NETWORKING
               </span>
               <span class="px-3 py-1 bg-cyber-gold/10 border border-cyber-gold/30 text-cyber-gold text-xs font-tech font-bold rounded-md">
-                MOBILE ENGINEER
+                IOT ARCHITECT
               </span>
               <span class="px-3 py-1 bg-cyber-green/10 border border-cyber-green/30 text-cyber-green text-xs font-tech font-bold rounded-md">
-                IOT ARCHITECT
+                MOBILE & IOT
               </span>
             </div>
           </div>
@@ -108,21 +108,23 @@ onMounted(() => {
           <!-- Core Pillars -->
           <div class="space-y-3.5">
             <div class="text-xs font-tech text-cyber-text-muted tracking-widest uppercase">// CORE COGNITIVE PILLARS</div>
-            
-            <!-- Mobile Pillar -->
-            <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-cyan/35 transition-colors">
-              <div class="flex items-center gap-2 text-cyber-cyan font-tech text-sm font-bold">
-                <span>+ MOBILE DEVELOPMENT</span>
+
+
+            <!-- Infrastructure Pillar -->
+            <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-green/35 transition-colors">
+              <div class="flex items-center gap-2 text-cyber-green font-tech text-sm font-bold">
+                <span>+ INFRASTRUCTURE NETWORKING</span>
                 <span class="text-xs text-cyber-text-muted font-normal ml-auto">[ 01 ]</span>
               </div>
               <div class="flex flex-wrap gap-2 mt-2.5">
-                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Flutter</span>
-                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Geolocation & Maps</span>
-                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Clean Architecture</span>
+                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">CCNA Certified</span>
+                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Firebase DB</span>
+                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Cloud Systems</span>
               </div>
             </div>
+          </div>
 
-            <!-- IoT Pillar -->
+          <!-- IoT Pillar -->
             <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-gold/35 transition-colors">
               <div class="flex items-center gap-2 text-cyber-gold font-tech text-sm font-bold">
                 <span>+ IOT MANAGEMENT & MONITORING</span>
@@ -135,19 +137,20 @@ onMounted(() => {
               </div>
             </div>
 
-            <!-- Infrastructure Pillar -->
-            <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-green/35 transition-colors">
-              <div class="flex items-center gap-2 text-cyber-green font-tech text-sm font-bold">
-                <span>+ INFRASTRUCTURE</span>
+          <!-- Mobile Pillar -->
+            <div class="p-3.5 rounded-sm border border-cyber-border/35 bg-cyber-card hover:border-cyber-cyan/35 transition-colors">
+              <div class="flex items-center gap-2 text-cyber-cyan font-tech text-sm font-bold">
+                <span>+ MOBILE DEVELOPMENT</span>
                 <span class="text-xs text-cyber-text-muted font-normal ml-auto">[ 03 ]</span>
               </div>
               <div class="flex flex-wrap gap-2 mt-2.5">
-                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">CCNA Certified</span>
-                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Firebase DB</span>
-                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Cloud Systems</span>
+                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Flutter</span>
+                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Geolocation & Maps</span>
+                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Clean Architecture</span>
               </div>
             </div>
-          </div>
+
+            
 
           <!-- Live Operational Stats Row -->
           <div class="grid grid-cols-3 gap-3">

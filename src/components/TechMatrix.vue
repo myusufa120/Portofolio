@@ -27,7 +27,10 @@ const skillsData = {
     { name: 'Firebase', level: 90, desc: 'Realtime database infrastructure and user verification platforms.', cases: 'Device claim validation, authentication tokens, real-time data sync.', projects: 'SYS-01' },
     { name: 'Thinger.io', level: 88, desc: 'Specialized cloud platform for Internet of Things management.', cases: 'Telemetry charts, bucket storage, device status feeds.', projects: 'SYS-01' },
     { name: 'JavaScript', level: 85, desc: 'Dynamic client/server coding language for web applications.', cases: 'Backend REST logic, dynamic presence checking.', projects: 'SYS-01, SYS-02' },
-    { name: 'Python', level: 75, desc: 'Scripting language for data analysis and quick backend checks.', cases: 'Fuzzy logic computation scripts, regression equations.', projects: 'SYS-01' }
+    { name: 'Python', level: 75, desc: 'Scripting language for data analysis and quick backend checks.', cases: 'Fuzzy logic computation scripts, regression equations.', projects: 'SYS-01' },
+    { name: 'MySQL', level: 82, desc: 'Relational database management system for structured data storage.', cases: 'User data persistence, relational schema design, query optimization.', projects: 'SYS-01, SYS-02' },
+    { name: 'NoSQL', level: 78, desc: 'Non-relational document-oriented database for flexible data models.', cases: 'Unstructured telemetry data storage, dynamic schema handling.', projects: 'SYS-01' },
+    { name: 'PostgreSQL', level: 75, desc: 'Advanced open-source relational database with extended SQL support.', cases: 'Complex query execution, data integrity enforcement, transactional workloads.', projects: 'SYS-02' }
   ],
   iot: [
     { name: 'ESP32 Integrasi', level: 92, desc: 'Configuring dual-core microcontrollers for analog/digital sensor readings.', cases: 'DHT22 sensors, wireless data packet transmissions.', projects: 'SYS-01' },
@@ -38,7 +41,11 @@ const skillsData = {
   tools: [
     { name: 'Routing & Switching', level: 85, desc: 'Cisco certified router configurations and IP structures.', cases: 'CCNA network engineering, packet tracing validation.', projects: 'CERT-01' },
     { name: 'Keamanan Jaringan', level: 80, desc: 'Protecting network pipelines from intrusion or leakage.', cases: 'Access Control Lists, network domain validation.', projects: 'CERT-01' },
-    { name: 'Git & GitHub', level: 90, desc: 'Source code management and continuous deployment tracks.', cases: 'OTA releases hosting, repository branch conflicts resolve.', projects: 'SYS-01' }
+    { name: 'Git & GitHub', level: 90, desc: 'Source code management and continuous deployment tracks.', cases: 'OTA releases hosting, repository branch conflicts resolve.', projects: 'SYS-01' },
+    { name: 'Docker', level: 80, desc: 'Containerization platform for building and deploying isolated application environments.', cases: 'Service containerization, multi-container orchestration, consistent dev/prod environments.', projects: 'SYS-01, SYS-02' },
+    { name: 'Cisco Packet Tracer', level: 85, desc: 'Network simulation tool for designing and testing network topologies.', cases: 'CCNA lab simulations, router/switch configuration practice, network troubleshooting.', projects: 'CERT-01' },
+    { name: 'Postman', level: 88, desc: 'API development and testing platform for RESTful service validation.', cases: 'REST API endpoint testing, request chaining, automated collection runs.', projects: 'SYS-01, SYS-02' },
+    { name: 'Laragon', level: 82, desc: 'Local development environment stack for PHP and web development.', cases: 'Local server hosting, PHP project scaffolding, database management.', projects: 'SYS-02' }
   ]
 }
 
