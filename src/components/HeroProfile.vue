@@ -1,6 +1,27 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import profilePhoto from '../assets/profile.jpeg'
+import ShapeGrid from './ShapeGrid.vue'
+import SpecularButton from './SpecularButton.vue'
+import LogoLoop from './LogoLoop.vue'
+import LanyardVue from './LanyardVue.vue'
+
+const coreSkillsList = [
+  { name: 'CCNA Certified', src: 'https://cdn.simpleicons.org/cisco/38bdf8' },
+  { name: 'ESP32 Firmware', src: 'https://cdn.simpleicons.org/espressif/38bdf8' },
+  { name: 'Flutter', src: 'https://cdn.simpleicons.org/flutter/38bdf8' },
+  { name: 'Dart', src: 'https://cdn.simpleicons.org/dart/38bdf8' },
+  { name: 'Firebase RTDB', src: 'https://cdn.simpleicons.org/firebase/38bdf8' },
+  { name: 'Thinger.io', src: 'https://cdn.simpleicons.org/smartthings/38bdf8' },
+  { name: 'Vue.js', src: 'https://cdn.simpleicons.org/vuedotjs/38bdf8' },
+  { name: 'OTA Protocol', src: 'https://cdn.simpleicons.org/arduino/38bdf8' },
+  { name: 'Cloud IoT', src: 'https://cdn.simpleicons.org/googlecloud/38bdf8' },
+  { name: 'Google Apps Script', src: 'https://cdn.simpleicons.org/googleappsscript/38bdf8' }
+]
+
+const sendEmail = () => {
+  window.location.href = 'mailto:myusufa120@gmail.com'
+}
 
 const copiedType = ref('')
 const copyText = (text, type) => {
@@ -30,8 +51,19 @@ onMounted(() => {
 <template>
   <section id="profile" class="relative w-full bg-cyber-bg text-cyber-text-main overflow-hidden transition-colors duration-300">
 
-    <!-- BACKGROUND -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none z-0"></div>
+    <!-- BACKGROUND (WAVE ANIMATION) -->
+    <!-- The gradient wave has been moved to App.vue as a global background -->
+    <div class="absolute inset-0 z-0 pointer-events-auto opacity-70">
+      <ShapeGrid 
+        :speed="0.5" 
+        :squareSize="40"
+        direction="diagonal"
+        borderColor="rgba(56, 189, 248, 0.15)"
+        hoverFillColor="rgba(56, 189, 248, 0.3)"
+        shape="hexagon"
+        :hoverTrailAmount="5"
+      />
+    </div>
     <div class="absolute -top-24 -left-24 w-[700px] h-[700px] bg-cyber-cyan-glow rounded-full blur-[180px] pointer-events-none animate-float-slow z-0 opacity-50"></div>
     <div class="absolute -bottom-20 -right-24 w-[500px] h-[500px] bg-cyber-cyan-glow/15 rounded-full blur-[160px] pointer-events-none animate-float-fast z-0"></div>
 
@@ -77,16 +109,31 @@ onMounted(() => {
           </div>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
-            <a
-              href="mailto:myusufa120@gmail.com"
-              class="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-cyber-cyan text-cyber-bg font-tech font-bold text-sm tracking-widest hover:bg-sky-300 transition-all duration-200 shadow-lg shadow-cyber-cyan/20 active:scale-[0.97]"
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <SpecularButton
+              size="md"
+              :radius="12"
+              tint="#0284c7"
+              :tintOpacity="0.2"
+              :blur="5"
+              textColor="#f8fafc"
+              lineColor="#38bdf8"
+              baseColor="#090a0f"
+              :intensity="1.5"
+              :thickness="1.5"
+              :speed="0.4"
+              :followMouse="true"
+              :autoAnimate="true"
+              @click="sendEmail"
+              className="font-tech font-bold text-sm tracking-widest shadow-lg shadow-cyber-cyan/10"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              GET IN TOUCH
-            </a>
+              <span class="flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                GET IN TOUCH
+              </span>
+            </SpecularButton>
             <a
               href="https://github.com/myusufa120"
               target="_blank"
@@ -126,27 +173,27 @@ onMounted(() => {
       <!-- ===== INFO SECTION — NO BOXES, flat layout ===== -->
       <div class="mt-16 animate-hud-up" style="opacity:0;animation-delay:0.5s;animation-fill-mode:forwards;">
 
-        <!-- Thin divider -->
-        <div class="h-px w-full bg-gradient-to-r from-transparent via-cyber-cyan/20 to-transparent mb-10"></div>
+        <!-- Glowing divider -->
+        <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-cyber-cyan/70 to-transparent mb-10 shadow-[0_0_8px_rgba(56,189,248,0.5)]"></div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
 
           <!-- Education -->
           <div>
             <p class="text-[11px] font-tech text-cyber-cyan tracking-[0.2em] uppercase mb-3">Education</p>
-            <h3 class="text-lg font-hud font-bold text-cyber-text-title leading-tight">S1 Teknik Informatika</h3>
-            <p class="text-sm text-cyber-text-muted mt-0.5">Universitas Semarang · 2026</p>
-            <div class="flex items-baseline gap-3 mt-3">
-              <span class="text-2xl font-tech font-extrabold text-cyber-text-title">3.93</span>
-              <span class="text-sm text-cyber-text-muted font-tech">/ 4.00 GPA</span>
-              <span class="text-xs font-tech text-cyber-cyan ml-1">EXCELLENT</span>
+            <h3 class="text-xl font-hud font-bold text-cyber-text-title leading-tight">S1 Teknik Informatika</h3>
+            <p class="text-base font-medium text-cyber-text-main mt-1">Universitas Semarang · 2026</p>
+            <div class="flex items-baseline gap-3 mt-4">
+              <span class="text-3xl font-tech font-extrabold text-cyber-text-title">3.93</span>
+              <span class="text-base font-medium text-cyber-text-main font-tech">/ 4.00 GPA</span>
+              <span class="text-sm font-tech font-bold text-cyber-cyan ml-1">EXCELLENT</span>
             </div>
           </div>
 
           <!-- Thesis -->
           <div>
             <p class="text-[11px] font-tech text-cyber-cyan tracking-[0.2em] uppercase mb-3">Thesis</p>
-            <p class="text-sm text-cyber-text-muted leading-relaxed">
+            <p class="text-base font-medium text-cyber-text-main leading-relaxed">
               "Sistem Manajemen Perangkat IOT Berbasis Cloud dengan Self-Diagnostic dan Over-The-Air Update."
             </p>
           </div>
@@ -154,46 +201,74 @@ onMounted(() => {
           <!-- Contact -->
           <div>
             <p class="text-[11px] font-tech text-cyber-cyan tracking-[0.2em] uppercase mb-3">Contact</p>
-            <div class="space-y-3">
+            <div class="space-y-4">
               <div class="flex items-center justify-between gap-4">
-                <a href="mailto:myusufa120@gmail.com" class="text-sm text-cyber-text-main hover:text-cyber-cyan transition-colors">myusufa120@gmail.com</a>
+                <a href="mailto:myusufa120@gmail.com" class="text-base font-medium text-cyber-text-title hover:text-cyber-cyan transition-colors">myusufa120@gmail.com</a>
                 <button
                   @click="copyText('myusufa120@gmail.com', 'email')"
-                  class="flex-shrink-0 text-xs font-tech text-cyber-text-muted hover:text-cyber-cyan transition-colors cursor-pointer underline-offset-2 hover:underline"
+                  class="flex-shrink-0 text-sm font-tech font-medium text-cyber-text-main hover:text-cyber-cyan transition-colors cursor-pointer underline-offset-2 hover:underline"
                 >{{ copiedType === 'email' ? 'Copied ✓' : 'Copy' }}</button>
               </div>
               <div class="flex items-center justify-between gap-4">
-                <span class="text-sm text-cyber-text-main">0813-4317-9023</span>
+                <span class="text-base font-medium text-cyber-text-title">0813-4317-9023</span>
                 <button
                   @click="copyText('081343179023', 'phone')"
-                  class="flex-shrink-0 text-xs font-tech text-cyber-text-muted hover:text-cyber-cyan transition-colors cursor-pointer underline-offset-2 hover:underline"
+                  class="flex-shrink-0 text-sm font-tech font-medium text-cyber-text-main hover:text-cyber-cyan transition-colors cursor-pointer underline-offset-2 hover:underline"
                 >{{ copiedType === 'phone' ? 'Copied ✓' : 'Copy' }}</button>
               </div>
-              <p class="text-xs text-cyber-text-muted/60">Semarang, Central Java, ID</p>
+              <p class="text-sm font-medium text-cyber-text-main">Semarang, Central Java, ID</p>
             </div>
           </div>
 
         </div>
 
         <!-- Skills flat list -->
-        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2">
-          <span class="text-[11px] font-tech text-cyber-cyan tracking-[0.2em] uppercase">Core Skills</span>
-          <span class="text-cyber-text-muted/30 text-xs">—</span>
-          <span v-for="skill in ['CCNA Certified','ESP32 Firmware','Flutter','Dart','Firebase RTDB','Thinger.io','Vue.js','OTA Protocol','Cloud IoT','Google Apps Script']"
-            :key="skill"
-            class="text-sm font-tech text-cyber-text-muted hover:text-cyber-text-title transition-colors cursor-default"
-          >{{ skill }}</span>
+        <div class="mt-12 flex flex-col md:flex-row items-start md:items-center gap-x-6 gap-y-4">
+          <div class="flex items-center gap-4 flex-shrink-0">
+            <span class="text-[11px] font-tech text-cyber-cyan tracking-[0.2em] uppercase">Core Skills</span>
+            <span class="text-cyber-text-muted/50 text-sm font-bold hidden md:inline">—</span>
+          </div>
+          
+          <!-- LogoLoop Container -->
+          <div class="w-full md:w-auto flex-grow overflow-hidden relative" style="height: 32px;">
+            <LogoLoop
+              :logos="coreSkillsList"
+              :speed="50"
+              direction="left"
+              :gap="40"
+              :logoHeight="24"
+              :scaleOnHover="true"
+              :pauseOnHover="false"
+              :hoverSpeed="20"
+              fadeOut
+              fadeOutColor="transparent"
+            >
+              <template #item="{ item }">
+                <div class="flex items-center gap-2 group/skill cursor-default">
+                  <img 
+                    :src="item.src" 
+                    :alt="item.name"
+                    class="h-5 w-5 md:h-6 md:w-6 object-contain opacity-80 group-hover/skill:opacity-100 transition-opacity drop-shadow-[0_0_5px_rgba(56,189,248,0.5)] group-hover/skill:drop-shadow-[0_0_8px_rgba(56,189,248,0.9)]"
+                    loading="lazy"
+                  />
+                  <span class="text-sm md:text-base font-tech font-medium text-cyber-text-main group-hover/skill:text-cyber-text-title transition-colors shadow-[0_0_10px_transparent] group-hover/skill:shadow-cyber-cyan/50 group-hover/skill:drop-shadow-[0_0_5px_rgba(56,189,248,0.8)]">
+                    {{ item.name }}
+                  </span>
+                </div>
+              </template>
+            </LogoLoop>
+          </div>
         </div>
 
       </div>
 
       <!-- Scroll indicator -->
-      <div class="mt-16 flex flex-col items-center gap-2 text-cyber-text-muted/40 animate-hud-up" style="opacity:0;animation-delay:0.75s;animation-fill-mode:forwards;">
-        <span class="text-[10px] font-tech tracking-[0.3em] uppercase">Scroll</span>
-        <div class="flex flex-col items-center gap-0.5 animate-bounce-slow">
-          <div class="w-px h-5 bg-gradient-to-b from-transparent to-cyber-cyan/35"></div>
-          <svg class="w-3.5 h-3.5 text-cyber-cyan/45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
+      <div class="mt-16 flex flex-col items-center gap-2 text-cyber-cyan/80 animate-hud-up" style="opacity:0;animation-delay:0.75s;animation-fill-mode:forwards;">
+        <span class="text-xs font-bold font-tech tracking-[0.3em] uppercase drop-shadow-md">Scroll</span>
+        <div class="flex flex-col items-center gap-1 animate-bounce-slow">
+          <div class="w-[2px] h-8 bg-gradient-to-b from-transparent to-cyber-cyan shadow-[0_0_5px_rgba(56,189,248,0.5)]"></div>
+          <svg class="w-5 h-5 text-cyber-cyan drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
           </svg>
         </div>
       </div>

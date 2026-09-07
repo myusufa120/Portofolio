@@ -6,6 +6,7 @@ import AboutMe from './components/AboutMe.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import ArchivesGallery from './components/ArchivesGallery.vue'
 import TechMatrix from './components/TechMatrix.vue'
+import GradientWaves from './components/GradientWaves.vue'
 
 const activeSection = ref('profile')
 const scrollProgress = ref(0)
@@ -71,6 +72,30 @@ onUnmounted(() => {
     <div class="scanline-overlay"></div>
 
     <!-- Holographic grid backgrounds - Faint and elegant -->
+    <div class="fixed inset-0 pointer-events-none z-0 opacity-40 mix-blend-screen">
+      <GradientWaves
+        horizonColor="#090a0f"
+        waveColor="#0284c7"
+        crestColor="#38bdf8"
+        :speed="0.3"
+        :amplitude="2.0"
+        :waveScale="0.6"
+        :waveRatio="0.9"
+        :swell="35"
+        :turbulence="20"
+        :tilt="1.11"
+        :zoom="1"
+        :height="5.5"
+        :fogDepth="15"
+        detail="medium"
+        :brightness="1"
+        :opacity="1"
+        :mouseInteraction="true"
+        :parallaxStrength="0.3"
+        :grain="true"
+        :grainIntensity="0.04"
+      />
+    </div>
     <div class="absolute inset-0 bg-cyber-grid pointer-events-none opacity-20 z-0"></div>
 
     <!-- Fixed side info overlays (Sleek minimalist indicators) -->

@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import GooeyNav from './GooeyNav.vue'
 
 const emit = defineEmits(['navigate'])
 
@@ -69,22 +70,13 @@ const scrollTo = (id) => {
       </div>
 
       <!-- Center: Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-1 bg-white/2 border border-cyber-border/20 px-2 py-1 rounded-full font-hud font-semibold text-xs">
-        <button
-          v-for="item in navItems"
-          :key="item.id"
-          @click="scrollTo(item.id)"
-          class="group flex items-center gap-1.5 px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer text-xs"
-          :class="activeSection === item.id
-            ? 'text-cyber-cyan bg-cyber-cyan/10 font-bold'
-            : 'text-cyber-text-muted hover:text-cyber-text-title hover:bg-white/3'"
-        >
-          <span class="text-[9px] font-tech" :class="activeSection === item.id ? 'text-cyber-cyan/70' : 'text-cyber-text-muted/60'">
-            {{ item.num }}.
-          </span>
-          <span>{{ item.label }}</span>
-        </button>
-      </nav>
+      <div class="hidden md:flex items-center">
+        <GooeyNav 
+          :items="navItems.map(item => ({...item, href: `#${item.id}`}))"
+          @navigate="scrollTo"
+          :activeIndexOverride="navItems.findIndex(i => i.id === activeSection)"
+        />
+      </div>
 
       <!-- Right: Desktop actions + Mobile hamburger -->
       <div class="flex items-center gap-3 flex-shrink-0">
