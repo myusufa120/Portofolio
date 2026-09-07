@@ -194,13 +194,12 @@ const currentCertFile = () => {
 <template>
   <section id="archives" class="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-cyber-dark-border">
     <div class="space-y-16">
-      
-      <!-- Section Title -->
+        <!-- Section Title -->
       <div class="text-center space-y-3 reveal-init">
-        <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// SECURE DATA ARCHIVES</div>
-        <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Certifications & Field Reports</h2>
+        <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// CREDENTIALS & CERTIFICATES</div>
+        <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Certifications & Field Work</h2>
         <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-          Archived proof of tech competency, verified credentials, and logs from physical system operations.
+          Verified professional certifications, academic credentials, and hands-on hardware engineering records.
         </p>
       </div>
 
@@ -230,7 +229,7 @@ const currentCertFile = () => {
               @click="openCertModal(cert)"
               class="w-full text-center block py-2.5 border border-cyber-cyan/30 text-cyber-cyan hover:bg-cyber-cyan/10 hover:border-cyber-cyan font-tech text-sm tracking-wider rounded-xl transition-all font-semibold cursor-pointer"
             >
-              [ VERIFY CREDENTIAL ]
+              [ VIEW CERTIFICATE ]
             </button>
           </div>
         </div>
@@ -239,7 +238,7 @@ const currentCertFile = () => {
       <!-- Part 2: Field Gallery Grid -->
       <div class="space-y-8">
         <div class="text-left font-tech">
-          <span class="text-cyber-cyan text-sm tracking-widest">// FIELD RECORDS & PROTOTYPING IMAGES</span>
+          <span class="text-cyber-cyan text-sm tracking-widest">// HARDWARE PROTOTYPING & ON-SITE WORK</span>
           <div class="h-[1px] w-full bg-cyber-dark-border mt-2"></div>
         </div>
 
@@ -257,13 +256,13 @@ const currentCertFile = () => {
               
               <img 
                 :src="item.img" 
-                :alt="item.title"
+                :alt="item.title" 
                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
               <div class="absolute bottom-2.5 left-2.5 right-2.5 flex justify-between items-center text-xs font-tech text-cyber-cyan bg-cyber-bg/85 backdrop-blur-sm px-2.5 py-1 border border-cyber-cyan/25 rounded-lg">
                 <span class="font-bold">{{ item.id }}</span>
-                <span>OPEN_LOG 📂</span>
+                <span>VIEW PHOTO 🔍</span>
               </div>
             </div>
             <div class="p-3 space-y-1.5">

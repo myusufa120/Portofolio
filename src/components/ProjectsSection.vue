@@ -50,7 +50,7 @@ watch(selectedCategory, () => {
 })
 
 const categories = [
-  { id: 'all', label: 'ALL_UNITS' },
+  { id: 'all', label: 'ALL PROJECTS' },
   { id: 'mobile', label: 'MOBILE APPS' },
   { id: 'web', label: 'WEB PLATFORMS' },
   { id: 'iot', label: 'IOT SYSTEMS' }
@@ -68,15 +68,15 @@ const projects = [
     liveLink: 'https://smart-monitoring-iot-pi.vercel.app/',
     gitLink: null,
     images: [
+      imgDashboard,
+      imgDevices,
+      imgDiag,
+      imgOta,
+      imgNotif,
+      imgQr,
       imgLanding1,
       imgLanding2,
       imgLogin,
-      imgDashboard,
-      imgDevices,
-      imgQr,
-      imgOta,
-      imgNotif,
-      imgDiag,
     ]
   },
   {
@@ -182,10 +182,10 @@ const timelineEvents = [
     <div class="space-y-16">
       <!-- Section Title -->
       <div class="text-center space-y-3 reveal-init">
-        <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// DEPLOYMENT REGISTRY</div>
-        <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Mission Logs & Projects</h2>
+        <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// FEATURED PROJECTS</div>
+        <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Featured Projects</h2>
         <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-          Filter through different sectors of engineering operations: Web, Mobile, and IoT Systems.
+          Production systems, mobile applications, and IoT telemetry architectures built for real-world reliability.
         </p>
       </div>
 
@@ -219,10 +219,10 @@ const timelineEvents = [
       <!-- Experience Timeline Section -->
       <div class="pt-24 space-y-16">
         <div class="text-center space-y-3 reveal-init">
-          <div class="text-sm font-tech text-cyber-gold tracking-widest uppercase">// ARCHIVAL CHRONOLOGY</div>
+          <div class="text-sm font-tech text-cyber-gold tracking-widest uppercase">// WORK EXPERIENCE</div>
           <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Experience & Research</h2>
           <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-            Historical log of engineering engagements, research milestones, and production deployments.
+            Hands-on software development, IoT systems engineering, and full-stack solutions.
           </p>
         </div>
 

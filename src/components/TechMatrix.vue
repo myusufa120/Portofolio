@@ -65,10 +65,10 @@ activeSkill.value = skillsData.mobile[0]
       
       <!-- Section Title -->
       <div class="text-center space-y-3 reveal-init">
-        <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// SYSTEM WEAPONRY</div>
-        <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Tech Matrix</h2>
+        <div class="text-sm font-tech text-cyber-cyan tracking-widest uppercase">// TECHNICAL PROFICIENCY</div>
+        <h2 class="text-4xl md:text-5xl font-hud font-extrabold text-cyber-text-title uppercase tracking-tight">Skills & Tech Matrix</h2>
         <p class="text-cyber-text-main text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-          Hover or click on components of the system weapons to reveal diagnostic status and compatibility values.
+          Select a category or technology to inspect technical proficiency, real-world applications, and project usage.
         </p>
       </div>
 
@@ -158,13 +158,13 @@ activeSkill.value = skillsData.mobile[0]
             <!-- Card Header -->
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-cyber-dark-border pb-3.5">
               <div>
-                <span class="text-xs font-tech text-cyber-cyan">// COMPONENT DIAGNOSTICS</span>
+                <span class="text-xs font-tech text-cyber-cyan">// SKILL DETAILS</span>
                 <h3 class="text-2xl md:text-3xl font-hud font-bold text-cyber-text-title mt-1">{{ activeSkill.name }}</h3>
               </div>
               
-              <!-- Compatibility percentage bar -->
+              <!-- Proficiency percentage bar -->
               <div class="text-left sm:text-right">
-                <span class="block text-xs font-tech text-cyber-text-muted uppercase tracking-widest">Compatibility</span>
+                <span class="block text-xs font-tech text-cyber-text-muted uppercase tracking-widest">Proficiency</span>
                 <span class="text-2xl font-hud font-extrabold text-cyber-cyan">{{ activeSkill.level }}%</span>
               </div>
             </div>
@@ -180,19 +180,19 @@ activeSkill.value = skillsData.mobile[0]
             <!-- Specs Info -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm font-sans">
               <div class="space-y-1.5">
-                <span class="block font-tech text-xs text-cyber-text-muted uppercase tracking-widest font-semibold">Primary Function</span>
+                <span class="block font-tech text-xs text-cyber-text-muted uppercase tracking-widest font-semibold">Overview</span>
                 <p class="text-cyber-text-main leading-relaxed">{{ activeSkill.desc }}</p>
               </div>
               <div class="space-y-1.5">
-                <span class="block font-tech text-xs text-cyber-text-muted uppercase tracking-widest font-semibold">Primary Use Cases</span>
+                <span class="block font-tech text-xs text-cyber-text-muted uppercase tracking-widest font-semibold">Applied Experience & Cases</span>
                 <p class="text-cyber-text-main leading-relaxed">{{ activeSkill.cases }}</p>
               </div>
             </div>
 
             <!-- Footer data -->
             <div class="border-t border-cyber-dark-border pt-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2 font-tech text-xs text-cyber-text-muted">
-              <div>ASSOCIATED_PROJECTS: <span class="text-cyber-text-title font-bold">{{ activeSkill.projects }}</span></div>
-              <div class="text-cyber-green font-semibold">STATUS: STABLE_DEPLOYMENT</div>
+              <div>APPLIED IN: <span class="text-cyber-text-title font-bold">{{ activeSkill.projects }}</span></div>
+              <div class="text-cyber-green font-semibold">PRODUCTION READY</div>
             </div>
 
           </div>

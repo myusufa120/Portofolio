@@ -54,11 +54,11 @@ onMounted(() => {
       <!-- Header: Operator Title -->
       <div class="space-y-3 animate-hud-up" style="opacity:0; animation-delay: 0.05s; animation-fill-mode: forwards;">
         <div class="flex items-center gap-3 text-sm font-tech text-cyber-cyan tracking-widest uppercase">
-          <span>// MISSION OPERATOR IDENTIFICATION</span>
+          <span>// PROFILE</span>
           <span class="h-[1px] w-20 bg-cyber-cyan/35"></span>
           <span class="flex items-center gap-2 text-xs font-tech text-cyber-green uppercase">
             <span class="w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
-            CALIBRATED
+            OPEN TO OPPORTUNITIES
           </span>
         </div>
         <h2 class="text-4xl md:text-6xl font-hud font-extrabold text-cyber-text-title tracking-tight uppercase leading-none">
@@ -79,7 +79,7 @@ onMounted(() => {
             <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyber-cyan"></div>
             
-            <div class="text-xs font-tech text-cyber-cyan tracking-widest">// CLASSIFICATION</div>
+            <div class="text-xs font-tech text-cyber-cyan tracking-widest">// SPECIALIZATION</div>
             <div class="text-xl md:text-2xl font-hud font-extrabold text-cyber-text-title tracking-wider mt-1.5">IT INFRASTRUCTURE ENTHUSIAST
 
             </div>
@@ -99,15 +99,15 @@ onMounted(() => {
 
           <!-- Value Proposition / Statement Card -->
           <div class="relative p-5 border border-cyber-dark-border bg-cyber-card/40 rounded-sm hologram-card">
-            <span class="absolute top-3 right-4 text-xs font-tech text-cyber-text-muted">[ MISSION_OBJECTIVE ]</span>
+            <span class="absolute top-3 right-4 text-xs font-tech text-cyber-text-muted">// ABOUT</span>
             <p class="text-base md:text-lg font-sans text-cyber-text-main leading-relaxed italic pr-8 pt-2">
-              "Bridging real-world hardware telemetry with sleek, production-ready mobile apps and cloud systems."
+              "Full-stack & IoT developer specializing in building end-to-end monitoring systems—from sensor telemetry to cross-platform Flutter apps and cloud dashboards."
             </p>
           </div>
 
           <!-- Core Pillars -->
           <div class="space-y-3.5">
-            <div class="text-xs font-tech text-cyber-text-muted tracking-widest uppercase">// CORE COGNITIVE PILLARS</div>
+            <div class="text-xs font-tech text-cyber-text-muted tracking-widest uppercase">// CORE SKILLS</div>
 
 
             <!-- Infrastructure Pillar -->
@@ -146,7 +146,7 @@ onMounted(() => {
               <div class="flex flex-wrap gap-2 mt-2.5">
                 <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Flutter</span>
                 <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Geolocation & Maps</span>
-                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Clean Architecture</span>
+                <span class="text-xs font-tech text-cyber-text-muted px-2.5 py-1 bg-cyber-dark-border rounded">Architecture</span>
               </div>
             </div>
 
@@ -172,7 +172,7 @@ onMounted(() => {
 
         <!-- ==================== MIDDLE PANEL: VISUAL UTAMA ==================== -->
         <div class="lg:col-span-4 flex flex-col items-center justify-center space-y-6 bg-cyber-card/30 border border-cyber-dark-border rounded-sm p-6 relative animate-hud-zoom" style="opacity:0; animation-delay: 0.35s; animation-fill-mode: forwards;">
-          <div class="absolute top-3 left-4 text-xs font-tech text-cyber-text-muted">SYSTEM_VISUAL_FEED</div>
+          <div class="absolute top-3 left-4 text-xs font-tech text-cyber-text-muted">// IDENTITY</div>
           
           <!-- Octagonal/Chamfered Photo Frame with Neon Glow -->
           <div class="relative group mt-4">
@@ -194,8 +194,8 @@ onMounted(() => {
               />
 
               <!-- Corner HUD details inside the frame -->
-              <div class="absolute top-2.5 left-2.5 text-[10px] font-tech text-cyber-cyan/80 z-20">SYS_OPERATOR // M. YUSUF. A</div>
-              <div class="absolute bottom-2.5 right-2.5 text-[10px] font-tech text-cyber-cyan/80 z-20">LOC: [7.2575° S, 112.7521° E]</div>
+              <div class="absolute top-2.5 left-2.5 text-[10px] font-tech text-cyber-cyan/80 z-20">ENGINEER // M. YUSUF. A</div>
+              <div class="absolute bottom-2.5 right-2.5 text-[10px] font-tech text-cyber-cyan/80 z-20">LOC: Semarang, ID</div>
               
               <!-- Floating tag -->
               <div class="absolute bottom-2.5 left-2.5 z-20 font-tech text-xs text-cyber-cyan bg-cyber-bg/90 backdrop-blur-sm px-2 py-0.5 border border-cyber-cyan/30 rounded">
@@ -210,14 +210,14 @@ onMounted(() => {
               M. YUSUF ABDURRAHMAN
             </div>
             <div class="text-xs md:text-sm font-tech text-cyber-text-muted tracking-wide">
-              CLASS: SOFTWARE ENGINEER / IOT ARCHITECT
+              SOFTWARE & IOT SYSTEMS ENGINEER
             </div>
 
             <!-- Switcher Details Visual Decorator -->
             <div class="flex items-center justify-center gap-2 pt-2">
               <span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span>
               <span class="h-[1px] w-8 bg-cyber-cyan/35"></span>
-              <span class="text-xs font-tech text-cyber-text-title uppercase tracking-widest">TRANSMISSION ACTIVE</span>
+              <span class="text-xs font-tech text-cyber-text-title uppercase tracking-widest">STATUS // FRESH GRADUATE</span>
               <span class="h-[1px] w-8 bg-cyber-cyan/35"></span>
               <span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan"></span>
             </div>
@@ -235,8 +235,8 @@ onMounted(() => {
             <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyber-cyan"></div>
             
-            <span class="absolute top-3 right-4 text-xs font-tech text-cyber-text-muted">[ MISSION_RECORD ]</span>
-            <span class="text-xs font-tech text-cyber-cyan tracking-widest uppercase block">// ARCHIVE: EDUCATION</span>
+            <span class="absolute top-3 right-4 text-xs font-tech text-cyber-text-muted">// EDUCATION</span>
+            <span class="text-xs font-tech text-cyber-cyan tracking-widest uppercase block">// ACADEMIC BACKGROUND</span>
 
             <div class="mt-4 space-y-4 font-sans">
               <div>
@@ -250,7 +250,7 @@ onMounted(() => {
                   <span class="font-bold text-cyber-gold text-base md:text-lg block mt-0.5 font-tech">3.93 / 4.00</span>
                 </div>
                 <div class="text-right">
-                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase tracking-widest font-semibold">EVALUATION</span>
+                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase tracking-widest font-semibold">HONORS</span>
                   <span class="px-3 py-1 bg-cyber-green/10 border border-cyber-green/30 text-cyber-green text-xs font-tech font-bold rounded-md block mt-0.5">
                     EXCELLENT
                   </span>
@@ -275,13 +275,13 @@ onMounted(() => {
             <div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-cyber-cyan"></div>
             <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyber-cyan"></div>
             
-            <span class="absolute top-3 right-4 text-xs font-tech text-cyber-text-muted">[ TRANSCEIVER_01 ]</span>
-            <span class="text-xs font-tech text-cyber-cyan tracking-widest uppercase block">// COMMS TRANSCEIVER</span>
+            <span class="absolute top-3 right-4 text-xs font-tech text-cyber-text-muted">// CONTACT</span>
+            <span class="text-xs font-tech text-cyber-cyan tracking-widest uppercase block">// GET IN TOUCH</span>
 
             <!-- Available Indicator -->
             <div class="mt-3.5 flex items-center gap-2 px-3 py-2 bg-cyber-green/5 border border-cyber-green/25 text-cyber-green text-xs font-tech rounded-sm">
               <span class="w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
-              STATUS: AVAILABLE FOR ROLES / CONTRACTS
+              STATUS: AVAILABLE FOR FULL-TIME / CONTRACT ROLES
             </div>
 
             <!-- Contact Nodes List -->
@@ -290,16 +290,16 @@ onMounted(() => {
               <!-- Geolocation Node -->
               <div class="flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-sm">
                 <div>
-                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">GEOLOCATION</span>
+                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">LOCATION</span>
                   <span class="font-bold text-cyber-text-title text-xs md:text-sm block mt-0.5">Semarang, Central Java, ID</span>
                 </div>
-                <span class="text-xs font-tech text-cyber-text-muted">[ SEC_LOC ]</span>
+                <span class="text-xs font-tech text-cyber-text-muted">[ ID_LOC ]</span>
               </div>
 
               <!-- Email Node -->
               <div class="group flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-sm hover:border-cyber-cyan/35 transition-colors">
                 <div>
-                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">EMAIL DIRECT</span>
+                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">EMAIL</span>
                   <a href="mailto:myusufa120@gmail.com" class="font-bold text-cyber-cyan text-xs md:text-sm block mt-0.5 hover:underline">
                     myusufa120@gmail.com
                   </a>
@@ -315,7 +315,7 @@ onMounted(() => {
               <!-- Phone Node -->
               <div class="group flex items-center justify-between p-2.5 bg-cyber-card/40 border border-cyber-dark-border rounded-sm hover:border-cyber-green/35 transition-colors">
                 <div>
-                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">PHONE COMMS</span>
+                  <span class="block text-[10px] font-tech text-cyber-text-muted uppercase font-semibold">PHONE / WHATSAPP</span>
                   <span class="font-bold text-cyber-green text-xs md:text-sm block mt-0.5">0813-4317-9023</span>
                 </div>
                 <button 
