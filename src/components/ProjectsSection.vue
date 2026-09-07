@@ -68,15 +68,15 @@ const projects = [
     liveLink: 'https://smart-monitoring-iot-pi.vercel.app/',
     gitLink: null,
     images: [
+      imgLanding1,
+      imgLanding2,
+      imgLogin,
       imgDashboard,
       imgDevices,
       imgDiag,
       imgOta,
       imgNotif,
       imgQr,
-      imgLanding1,
-      imgLanding2,
-      imgLogin,
     ]
   },
   {
@@ -178,7 +178,7 @@ const timelineEvents = [
 </script>
 
 <template>
-  <section id="projects" class="py-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-cyber-dark-border">
+  <section id="projects" class="pt-16 pb-24 px-4 md:px-8 max-w-7xl mx-auto border-t border-cyber-dark-border">
     <div class="space-y-16">
       <!-- Section Title -->
       <div class="text-center space-y-3 reveal-init">

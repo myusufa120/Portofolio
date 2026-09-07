@@ -37,9 +37,10 @@ onMounted(() => {
 
 const navItems = [
   { id: 'profile', label: 'PROFILE', num: '01' },
-  { id: 'projects', label: 'PROJECTS & EXP', num: '02' },
-  { id: 'archives', label: 'ARCHIVES', num: '03' },
-  { id: 'tech-matrix', label: 'TECH MATRIX', num: '04' }
+  { id: 'about', label: 'ABOUT', num: '02' },
+  { id: 'projects', label: 'PROJECTS & EXP', num: '03' },
+  { id: 'archives', label: 'ARCHIVES', num: '04' },
+  { id: 'tech-matrix', label: 'TECH MATRIX', num: '05' }
 ]
 
 const scrollTo = (id) => {
